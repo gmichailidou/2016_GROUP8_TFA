@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/advISOr" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=advISOr
+qgisMinimumVersion=2.0
+description=This plugin is intented to detect the isolated areas from the public transport network
+version=0.1
+author=2016 Group8 TuDelft GEO1005
+email=lydiakotoula@outlook.com
+
+about=The main requirement of the urban planner is to specify which areas in a city don’t have a (good) connection with the existing public transport network. Namely, the user needs to take into consideration several indicators that are given from the SDSS and based on them, to indicate which the isolated areas are. In addition, the user needs to define the most critical isolated area that requires an urgent development from the public transport operator. SDSS implementation steps 1) Firstly, the user has the ability to decide if the analysis will take place before or after midnight. As a result, only the available routes and their stops will be visualised in the map. 2) The next step, is to choose if he wants to do the analysis by giving priority to a specific group (or groups) of people. If yes, then the options are people who: are elderly, are young, have low income and have some disabilities. If the analysis refers to the midnight period and importance is chosen to be given to the old people, then the user won’t be able to continue with the process since it is assumed that elderly do not travel during midnight. 3) According to the decision taken on step 2, the system will proceed in a different way: If the analysis is based on a group of people, then the user needs to define an offset distance from the neighbourhoods of which the majority is the selected group to find out if there are mode nodes in the “nearby” area. The distance is decided by the user and a specific range is predefined in the system. According to the previous parameters, there is a certain limit on the minimum and maximum distance that the user can choose. For example, if the selected group for analysis is young people, means that the maximum allowed by the system distance can be greater than an analysis based on the elderly people group. If the analysis is not based on a group of people, the user needs to define an offset distance from each mode node. The distance is decided by the user and a specific range is predefined in the system according to the mean of transport (train, bus, tram, metro). 4) As a result of the previous step, the user can require from the system to provide (visualize) the initial isolated areas by processing the mode nodes/stops with the buffer distances. If the areas need to be defined as a result of the step (3a), then the neighbourhoods along with their offset distance in which no mode stops are included, can be defined as initial isolated areas. If the areas need to be defined as a result of the step (3b), then the isolated areas will be the all the exterior from the buffer zones. 5) In order to indicate in which of those areas the public transport services really need to be improved, the total population of each (initial) isolated area is taken into account. Namely, a threshold related to the population must be defined by the user in the system and if the total amount of inhabitants is less than that, then the area is not detected as isolated area (that need to receive improvement). 6) Lastly, the user can require from the SDSS to provide him with a hierarchy of the isolated areas based on their density. The most urgent area of which the public transport services need improvement, will be the one with the higher density value.
+
+tracker=https://github.com
+repository=https://github.com/gmichailidou/2016_GROUP8_advISOr
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=ISOlated areas, public transport network, coverage, distance
+
+homepage=https://github.com/gmichailidou/2016_GROUP8_advISOr
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
