@@ -1,18 +1,20 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="2.14.3-Essen">
+<qgis projectname="" version="2.18.0">
   <title></title>
+  <autotransaction active="0"/>
+  <evaluateDefaultValues active="0"/>
   <layer-tree-group expanded="1" checked="Qt::Checked" name="">
     <customproperties/>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="CBS_2014_Rotterdam_100mFinal20161230183622381" name="CBS_2014_Rotterdam_100mFinal">
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="2016_RET_ROTTERDAM20170101105311487" name="2016_RET_ROTTERDAM">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="trainstationsnew20161230183614132" name="trainstationsnew">
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="buurtnew20170101105311719" name="buurtnew">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="buurtnew20161230183604912" name="buurtnew">
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="CBS_2014_Rotterdam_100mFinal20170101105311765" name="CBS_2014_Rotterdam_100mFinal">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="2016_RET_ROTTERDAM20161230183542685" name="2016_RET_ROTTERDAM">
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="trainstationsnew20170101105311812" name="trainstationsnew">
       <customproperties/>
     </layer-tree-layer>
   </layer-tree-group>
@@ -20,16 +22,16 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>48035.51693165411415976</xmin>
-      <ymin>405177.5436800851020962</ymin>
-      <xmax>137566.96104389004176483</xmax>
-      <ymax>470052.76354118739254773</ymax>
+      <xmin>70490.20419016905361786</xmin>
+      <ymin>421856.88985874695936218</ymin>
+      <xmax>115255.92624628701014444</xmax>
+      <ymax>454294.49978929798817262</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>0</projections>
     <destinationsrs>
       <spatialrefsys>
-        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
         <srsid>2517</srsid>
         <srid>28992</srid>
         <authid>EPSG:28992</authid>
@@ -44,45 +46,51 @@
   </mapcanvas>
   <layer-tree-canvas>
     <custom-order enabled="0">
-      <item>2016_RET_ROTTERDAM20161230183542685</item>
-      <item>buurtnew20161230183604912</item>
-      <item>trainstationsnew20161230183614132</item>
-      <item>CBS_2014_Rotterdam_100mFinal20161230183622381</item>
+      <item>2016_RET_ROTTERDAM20170101105311487</item>
+      <item>buurtnew20170101105311719</item>
+      <item>CBS_2014_Rotterdam_100mFinal20170101105311765</item>
+      <item>trainstationsnew20170101105311812</item>
     </custom-order>
   </layer-tree-canvas>
   <legend updateDrawingOrder="true">
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="CBS_2014_Rotterdam_100mFinal" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="2016_RET_ROTTERDAM" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="CBS_2014_Rotterdam_100mFinal20161230183622381" visible="1"/>
-      </filegroup>
-    </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="trainstationsnew" showFeatureCount="0">
-      <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="trainstationsnew20161230183614132" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="2016_RET_ROTTERDAM20170101105311487" visible="1"/>
       </filegroup>
     </legendlayer>
     <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="buurtnew" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="buurtnew20161230183604912" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="buurtnew20170101105311719" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="2016_RET_ROTTERDAM" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="CBS_2014_Rotterdam_100mFinal" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="2016_RET_ROTTERDAM20161230183542685" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="CBS_2014_Rotterdam_100mFinal20170101105311765" visible="1"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="trainstationsnew" showFeatureCount="0">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile isInOverview="0" layerid="trainstationsnew20170101105311812" visible="1"/>
       </filegroup>
     </legendlayer>
   </legend>
   <projectlayers>
-    <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-      <id>2016_RET_ROTTERDAM20161230183542685</id>
-      <datasource>/Users/mac/Desktop/MSc Geomatics/Q2/GEO1005 - Spatial Decision Support for Planning and Crisis Management/assignmnets/project data/2016_Rotterdam_RET_public_transport_stops 2/2016_RET_ROTTERDAM.shp</datasource>
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>62906.0254005011083791</xmin>
+        <ymin>424441.04436930170049891</ymin>
+        <xmax>105540.04640632774680853</xmax>
+        <ymax>455334.00620792177505791</ymax>
+      </extent>
+      <id>2016_RET_ROTTERDAM20170101105311487</id>
+      <datasource>./2016_RET_ROTTERDAM.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>2016_RET_ROTTERDAM</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
           <srsid>2517</srsid>
           <srid>28992</srid>
           <authid>EPSG:28992</authid>
@@ -92,44 +100,56 @@
           <geographicflag>false</geographicflag>
         </spatialrefsys>
       </srs>
-      <provider encoding="System">ogr</provider>
+      <provider encoding="UTF-8">ogr</provider>
       <previewExpression></previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
+      <defaults>
+        <default field="name" expression=""/>
+        <default field="desc" expression=""/>
+        <default field="latitude" expression=""/>
+        <default field="longitude" expression=""/>
+        <default field="Rh1_Wd/h" expression=""/>
+        <default field="Rh2_Wd/h" expression=""/>
+        <default field="NRh_Wd/h" expression=""/>
+        <default field="Rh1_We/h" expression=""/>
+        <default field="Rh2_We/h" expression=""/>
+        <default field="NRh_We/h" expression=""/>
+      </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
         <edittype widgetv2type="TextEdit" name="name">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="desc">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="latitude">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="longitude">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rh1_Wd/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rh2_Wd/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="NRh_Wd/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rh1_We/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rh2_We/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="NRh_We/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
       <renderer-v2 forceraster="0" symbollevels="0" type="singleSymbol" enableorderby="0">
@@ -137,8 +157,9 @@
           <symbol alpha="1" clip_to_extent="1" type="marker" name="0">
             <layer pass="0" class="SimpleMarker" locked="0">
               <prop k="angle" v="0"/>
-              <prop k="color" v="42,170,128,255"/>
+              <prop k="color" v="14,40,143,255"/>
               <prop k="horizontal_anchor_point" v="1"/>
+              <prop k="joinstyle" v="bevel"/>
               <prop k="name" v="circle"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
@@ -168,7 +189,7 @@
       <label>0</label>
       <labelattributes>
         <label fieldname="" text="Label"/>
-        <family fieldname="" name="Lucida Grande"/>
+        <family fieldname="" name="MS Shell Dlg 2"/>
         <size fieldname="" units="pt" value="12"/>
         <bold fieldname="" on="0"/>
         <italic fieldname="" on="0"/>
@@ -187,9 +208,24 @@
         <selectedonly on=""/>
       </labelattributes>
       <annotationform></annotationform>
+      <aliases>
+        <alias field="name" index="0" name=""/>
+        <alias field="desc" index="1" name=""/>
+        <alias field="latitude" index="2" name=""/>
+        <alias field="longitude" index="3" name=""/>
+        <alias field="Rh1_Wd/h" index="4" name=""/>
+        <alias field="Rh2_Wd/h" index="5" name=""/>
+        <alias field="NRh_Wd/h" index="6" name=""/>
+        <alias field="Rh1_We/h" index="7" name=""/>
+        <alias field="Rh2_We/h" index="8" name=""/>
+        <alias field="NRh_We/h" index="9" name=""/>
+      </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
-      <attributeactions/>
+      <attributeactions default="-1"/>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="277556888">
+        <columns/>
+      </attributetableconfig>
       <editform></editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
@@ -203,16 +239,22 @@
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-      <id>CBS_2014_Rotterdam_100mFinal20161230183622381</id>
-      <datasource>/Users/mac/Desktop/MSc Geomatics/Q2/GEO1005 - Spatial Decision Support for Planning and Crisis Management/assignmnets/project data/2016_Rotterdam_RET_public_transport_stops 2/CBS_2014_Rotterdam_100mFinal.shp</datasource>
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>84600.0000000037252903</xmin>
+        <ymin>427699.9999999962747097</ymin>
+        <xmax>100300.0000000037252903</xmax>
+        <ymax>443900.0000000074505806</ymax>
+      </extent>
+      <id>CBS_2014_Rotterdam_100mFinal20170101105311765</id>
+      <datasource>./CBS_2014_Rotterdam_100mFinal.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>CBS_2014_Rotterdam_100mFinal</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
           <srsid>2517</srsid>
           <srid>28992</srid>
           <authid>EPSG:28992</authid>
@@ -222,62 +264,80 @@
           <geographicflag>false</geographicflag>
         </spatialrefsys>
       </srs>
-      <provider encoding="System">ogr</provider>
+      <provider encoding="UTF-8">ogr</provider>
       <previewExpression></previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
+      <defaults>
+        <default field="sid" expression=""/>
+        <default field="objectid" expression=""/>
+        <default field="c28992r100" expression=""/>
+        <default field="inw2014" expression=""/>
+        <default field="i2014_014" expression=""/>
+        <default field="i2014_1524" expression=""/>
+        <default field="i2014_2544" expression=""/>
+        <default field="i2014_4564" expression=""/>
+        <default field="i2014_65pl" expression=""/>
+        <default field="p_auto2014" expression=""/>
+        <default field="p_wal2014" expression=""/>
+        <default field="p_nwal2014" expression=""/>
+        <default field="won2012" expression=""/>
+        <default field="wozwon2012" expression=""/>
+        <default field="i2014_1564" expression=""/>
+        <default field="Disable" expression=""/>
+      </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
         <edittype widgetv2type="TextEdit" name="sid">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="objectid">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="c28992r100">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="inw2014">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="i2014_014">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="i2014_1524">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="i2014_2544">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="i2014_4564">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="i2014_65pl">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="p_auto2014">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="p_wal2014">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="p_nwal2014">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="won2012">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="wozwon2012">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="i2014_1564">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Disable">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
       <renderer-v2 forceraster="0" symbollevels="0" type="singleSymbol" enableorderby="0">
@@ -285,7 +345,7 @@
           <symbol alpha="1" clip_to_extent="1" type="fill" name="0">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
-              <prop k="color" v="144,29,31,255"/>
+              <prop k="color" v="237,9,39,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
@@ -310,7 +370,7 @@
       <label>0</label>
       <labelattributes>
         <label fieldname="" text="Label"/>
-        <family fieldname="" name="Lucida Grande"/>
+        <family fieldname="" name="MS Shell Dlg 2"/>
         <size fieldname="" units="pt" value="12"/>
         <bold fieldname="" on="0"/>
         <italic fieldname="" on="0"/>
@@ -329,9 +389,30 @@
         <selectedonly on=""/>
       </labelattributes>
       <annotationform></annotationform>
+      <aliases>
+        <alias field="sid" index="0" name=""/>
+        <alias field="objectid" index="1" name=""/>
+        <alias field="c28992r100" index="2" name=""/>
+        <alias field="inw2014" index="3" name=""/>
+        <alias field="i2014_014" index="4" name=""/>
+        <alias field="i2014_1524" index="5" name=""/>
+        <alias field="i2014_2544" index="6" name=""/>
+        <alias field="i2014_4564" index="7" name=""/>
+        <alias field="i2014_65pl" index="8" name=""/>
+        <alias field="p_auto2014" index="9" name=""/>
+        <alias field="p_wal2014" index="10" name=""/>
+        <alias field="p_nwal2014" index="11" name=""/>
+        <alias field="won2012" index="12" name=""/>
+        <alias field="wozwon2012" index="13" name=""/>
+        <alias field="i2014_1564" index="14" name=""/>
+        <alias field="Disable" index="15" name=""/>
+      </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
-      <attributeactions/>
+      <attributeactions default="-1"/>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="277558888">
+        <columns/>
+      </attributetableconfig>
       <editform></editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
@@ -345,16 +426,22 @@
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-      <id>buurtnew20161230183604912</id>
-      <datasource>/Users/mac/Desktop/MSc Geomatics/Q2/GEO1005 - Spatial Decision Support for Planning and Crisis Management/assignmnets/project data/2016_Rotterdam_RET_public_transport_stops 2/buurtnew.shp</datasource>
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>81068.47442626953125</xmin>
+        <ymin>426189.6876220703125</ymin>
+        <xmax>102560.75604248046875</xmax>
+        <ymax>448098.35003662109375</ymax>
+      </extent>
+      <id>buurtnew20170101105311719</id>
+      <datasource>./buurtnew.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>buurtnew</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
           <srsid>2517</srsid>
           <srid>28992</srid>
           <authid>EPSG:28992</authid>
@@ -364,41 +451,52 @@
           <geographicflag>false</geographicflag>
         </spatialrefsys>
       </srs>
-      <provider encoding="System">ogr</provider>
+      <provider encoding="UTF-8">ogr</provider>
       <previewExpression></previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
+      <defaults>
+        <default field="sid" expression=""/>
+        <default field="bu_code" expression=""/>
+        <default field="bu_naam" expression=""/>
+        <default field="wk_code" expression=""/>
+        <default field="gm_code" expression=""/>
+        <default field="gm_naam" expression=""/>
+        <default field="aant_inw" expression=""/>
+        <default field="area" expression=""/>
+        <default field="density" expression=""/>
+      </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
         <edittype widgetv2type="TextEdit" name="sid">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="bu_code">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="bu_naam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="wk_code">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="gm_code">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="gm_naam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="aant_inw">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="area">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="density">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
       <renderer-v2 forceraster="0" symbollevels="0" type="singleSymbol" enableorderby="0">
@@ -406,7 +504,7 @@
           <symbol alpha="1" clip_to_extent="1" type="fill" name="0">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
-              <prop k="color" v="43,104,161,255"/>
+              <prop k="color" v="176,84,113,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
@@ -431,7 +529,7 @@
       <label>0</label>
       <labelattributes>
         <label fieldname="" text="Label"/>
-        <family fieldname="" name="Lucida Grande"/>
+        <family fieldname="" name="MS Shell Dlg 2"/>
         <size fieldname="" units="pt" value="12"/>
         <bold fieldname="" on="0"/>
         <italic fieldname="" on="0"/>
@@ -450,9 +548,23 @@
         <selectedonly on=""/>
       </labelattributes>
       <annotationform></annotationform>
+      <aliases>
+        <alias field="sid" index="0" name=""/>
+        <alias field="bu_code" index="1" name=""/>
+        <alias field="bu_naam" index="2" name=""/>
+        <alias field="wk_code" index="3" name=""/>
+        <alias field="gm_code" index="4" name=""/>
+        <alias field="gm_naam" index="5" name=""/>
+        <alias field="aant_inw" index="6" name=""/>
+        <alias field="area" index="7" name=""/>
+        <alias field="density" index="8" name=""/>
+      </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
-      <attributeactions/>
+      <attributeactions default="-1"/>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="277550888">
+        <columns/>
+      </attributetableconfig>
       <editform></editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
@@ -466,16 +578,22 @@
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-      <id>trainstationsnew20161230183614132</id>
-      <datasource>/Users/mac/Desktop/MSc Geomatics/Q2/GEO1005 - Spatial Decision Support for Planning and Crisis Management/assignmnets/project data/2016_Rotterdam_RET_public_transport_stops 2/trainstationsnew.shp</datasource>
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>84424.16000000000349246</xmin>
+        <ymin>429900.29599999997299165</ymin>
+        <xmax>99824</xmax>
+        <ymax>440942</ymax>
+      </extent>
+      <id>trainstationsnew20170101105311812</id>
+      <datasource>./trainstationsnew.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>trainstationsnew</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
           <srsid>2517</srsid>
           <srid>28992</srid>
           <authid>EPSG:28992</authid>
@@ -485,44 +603,56 @@
           <geographicflag>false</geographicflag>
         </spatialrefsys>
       </srs>
-      <provider encoding="System">ogr</provider>
+      <provider encoding="UTF-8">ogr</provider>
       <previewExpression></previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
+      <defaults>
+        <default field="sid" expression=""/>
+        <default field="svk_id" expression=""/>
+        <default field="id" expression=""/>
+        <default field="naam" expression=""/>
+        <default field="Rh1_Wd/h" expression=""/>
+        <default field="Rd2_Wd/h" expression=""/>
+        <default field="NRh_Wd/h" expression=""/>
+        <default field="Rh1_We/h" expression=""/>
+        <default field="Rh2_We/h" expression=""/>
+        <default field="NRh_We/h" expression=""/>
+      </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
         <edittype widgetv2type="TextEdit" name="sid">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="svk_id">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="id">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="naam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rh1_Wd/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rd2_Wd/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="NRh_Wd/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rh1_We/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="Rh2_We/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="NRh_We/h">
-          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
       <renderer-v2 forceraster="0" symbollevels="0" type="singleSymbol" enableorderby="0">
@@ -530,8 +660,9 @@
           <symbol alpha="1" clip_to_extent="1" type="marker" name="0">
             <layer pass="0" class="SimpleMarker" locked="0">
               <prop k="angle" v="0"/>
-              <prop k="color" v="145,14,114,255"/>
+              <prop k="color" v="115,202,180,255"/>
               <prop k="horizontal_anchor_point" v="1"/>
+              <prop k="joinstyle" v="bevel"/>
               <prop k="name" v="circle"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
@@ -561,7 +692,7 @@
       <label>0</label>
       <labelattributes>
         <label fieldname="" text="Label"/>
-        <family fieldname="" name="Lucida Grande"/>
+        <family fieldname="" name="MS Shell Dlg 2"/>
         <size fieldname="" units="pt" value="12"/>
         <bold fieldname="" on="0"/>
         <italic fieldname="" on="0"/>
@@ -580,9 +711,24 @@
         <selectedonly on=""/>
       </labelattributes>
       <annotationform></annotationform>
+      <aliases>
+        <alias field="sid" index="0" name=""/>
+        <alias field="svk_id" index="1" name=""/>
+        <alias field="id" index="2" name=""/>
+        <alias field="naam" index="3" name=""/>
+        <alias field="Rh1_Wd/h" index="4" name=""/>
+        <alias field="Rd2_Wd/h" index="5" name=""/>
+        <alias field="NRh_Wd/h" index="6" name=""/>
+        <alias field="Rh1_We/h" index="7" name=""/>
+        <alias field="Rh2_We/h" index="8" name=""/>
+        <alias field="NRh_We/h" index="9" name=""/>
+      </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
-      <attributeactions/>
+      <attributeactions default="-1"/>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="277542888">
+        <columns/>
+      </attributetableconfig>
       <editform></editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
