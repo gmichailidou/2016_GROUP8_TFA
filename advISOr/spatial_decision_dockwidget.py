@@ -70,15 +70,22 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         # set up GUI operation signals
 
         # GUI
-        self.iface.projectRead.connect(self.updateNodeNetworkScenario)
-        self.iface.newProjectCreated.connect(self.updateNodeNetworkScenario)
-        self.iface.legendInterface().itemRemoved.connect(self.updateNodeNetworkScenario)
-        self.iface.legendInterface().itemAdded.connect(self.updateNodeNetworkScenario)
+        self.iface.projectRead.connect(self.updateNodeCencusScenario)
+        self.iface.newProjectCreated.connect(self.updateNodeCencusScenario)
+        self.iface.legendInterface().itemRemoved.connect(self.updateNodeCencusScenario)
+        self.iface.legendInterface().itemAdded.connect(self.updateNodeCencusScenario)
 
 
         # data
         self.loadRotterdamdataButton.clicked.connect(self.warningLoadData)
-        # self.createScenarioButton.connect(self.createScenario)
+        #self.createScenarioButton.clicked.connect(self.createScenario)
+        #self.scenarioCombo.currentIndexChanged.connect(self.scenarioChanged)
+        self.scenarioPath = QgsProject.instance().homePath()
+        self.scenarioCombo.clear()
+        self.scenarioCombo.addItem('base')
+        self.scenarioAttributes = {}
+        self.subScenario = {}
+
         '''
         self.selectNodesCombo.connect()
         self.selectCensusCombo()
@@ -115,15 +122,50 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         scenarios = [self.scenarioCombo.itemText(i) for i in range(self.scenarioCombo.count())]
         return scenarios
 
+    def createScenario(self):
+        # select the node layer
+        vl = self.getNodesLayer()
+        # create a path and filename for the new file
+        path = QtGui.QFileDialog(self).getSaveFileName()
+        if path:
+            list_path = path.split("/")[:-1]
+            real_path = '/'.join(list_path)
+            # make a directory for scenario
+            if not os.path.exists(path):
+                os.makedirs(path)
+            # save the scenario path
+            self.scenarioPath = real_path
+            current_scenario = path.split("/")[-1]
+            # add scenario to current scenario combo and select it
+            self.scenarioCombo.addItem(current_scenario)
+            index = self.scenarioCombo.count() - 1
+            self.scenarioCombo.setCurrentIndex(index)
+            filename = current_scenario + '_nodes'
+            pathStyle = "%s/Styles/" % QgsProject.instance().homePath()
+            # save the layer as shapefile
+            vlayer = uf.copyLayerToShapeFile(vl, path, filename)
+            # add scenario to the project
+            QgsMapLayerRegistry.instance().addMapLayer(vlayer, False)
 
-    def updateNodeNetworkScenario(self):
+            root = QgsProject.instance().layerTreeRoot()
+            scenario_group = root.insertGroup(0, current_scenario)
+            scenario_group.insertLayer(0, vlayer)
+            root.findLayer(vlayer.id()).setExpanded(False)
+
+            layer = uf.getLegendLayerByName(self.iface, filename)
+            layer.loadNamedStyle("{}styleNodes.qml".format(pathStyle))
+            layer.triggerRepaint()
+            self.iface.legendInterface().refreshLayerSymbology(layer)
+
+
+    def updateNodeCencusScenario(self):
         layers = uf.getLegendLayers(self.iface, 'all', 'all')
         nodes_text = self.selectNodesCombo.currentText()
         if nodes_text == '':
             nodes_text = '2016_RET_ROTTERDAM'
-        node_text = self.selectNodesCombo.currentText()
+        cencus_text = self.selectCensusCombo.currentText()
         if cencus_text == '':
-            cencus_text = 'buurtnew'
+            cencus_text = 'CBS_2014_Rotterdam_100mFinal'
         self.selectNodesCombo.clear()
         self.selectCensusCombo.clear()
         if layers:
@@ -134,7 +176,7 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
                 index = self.selectNodesCombo.findText(nodes_text)
                 self.selectNodesCombo.setCurrentIndex(index);
             if layer_names.__contains__(census_text):
-                index = self.selectCensusCombo.findText(cesus_text)
+                index = self.selectCensusCombo.findText(census_text)
                 self.selectCensusCombo.setCurrentIndex(index);
 
         # remove scenario if deleted
@@ -153,9 +195,9 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             else:
                 self.scenarioAttributes.pop(scenario, None)
                 # send this to the table
-                self.clearTable()
-                self.updateTable1()
-                self.updateTable2()
+                #self.clearTable()
+                #self.updateTable1()
+                #self.updateTable2()
 
     def warningLoadData(self):
         msgBox = QtGui.QMessageBox()
@@ -169,7 +211,7 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def loadRotterdamButton(self):
         data_path = os.path.join(os.path.dirname(__file__), 'sample_data', 'Final_Rotterdam_data.qgs')
         self.iface.addProject(data_path)
-        self.baseAttributes()
+        #self.baseAttributes()
 
     def baseAttributes(self):
         # get summary of the attribute
@@ -180,9 +222,28 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             summary.append(feature)  # , feature.attribute(attribute)))
         self.scenarioAttributes["base"] = summary
         # send this to the table
-        self.clearTable()
-        self.updateTable1()
-        self.updateTable2()
+        #self.clearTable()
+        #self.updateTable1()
+        #self.updateTable2()
+
+    def getNodesLayer(self):
+        layer_name = self.selectNodesCombo.currentText()
+        layer = uf.getLegendLayerByName(self.iface, layer_name)
+        return layer
+
+    def getBaseNodeLayer(self):
+        layer_name = self.selectNodeCombo.currentText()
+        layer = uf.getLegendLayerByName(self.iface, layer_name)
+        return layer
+
+    def getCurrentNodeLayer(self):
+        layer_name = self.scenarioCombo.currentText() + '_nodes'
+        layer = uf.getLegendLayerByName(self.iface, layer_name)
+
+        if layer == None:
+            layer_name = 'Nodes'
+            layer = uf.getLegendLayerByName(self.iface, layer_name)
+        return layer
 
     '''
         self.iface.projectRead.connect(self.updateLayers)
