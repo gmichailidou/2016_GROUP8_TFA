@@ -89,15 +89,18 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         '''
         self.selectNodesCombo.connect()
         self.selectCensusCombo()
-
+        '''
         # indicators
-        self.trambox.connect()
-        self.metrobox.connect()
-        self.busbox.connect()
-        self.trainbox.connect()
-        self.selecttimeCombo.connect()
-        self.selectgroupBox.connect()
+        self.tramBox.stateChanged.connect(?)
+        self.metroBox.stateChanged.connect(?)
+        self.busBox.stateChanged.connect(?)
+        self.trainBox.stateChanged.connect(?)
+        self.selecttimeCombo.activated.connect(?)
+        self.horizontalSlider.sliderMoved.connect(?)
+        self.horizontalSlider.valueChanged.connect(?)
+        self.agegroupBox.activated.connect(?)
 
+        '''
         # analysis
         self.stationDistanceSlider.connect()
         self.sliderValue.connect()
