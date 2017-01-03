@@ -7,7 +7,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>693</width>
+    <width>503</width>
     <height>839</height>
    </rect>
   </property>
@@ -78,7 +78,7 @@
        <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="dataTab">
        <attribute name="title">
@@ -277,79 +277,21 @@
          <rect>
           <x>11</x>
           <y>11</y>
-          <width>511</width>
-          <height>451</height>
+          <width>418</width>
+          <height>458</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
-            <widget class="QLabel" name="label_10">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select public transport modes to filter the nodes:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="tramBox">
-             <property name="text">
-              <string>tram</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="metroBox">
-             <property name="text">
-              <string>metro</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="busBox">
-               <property name="text">
-                <string>bus</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QCheckBox" name="trainBox">
-               <property name="text">
-                <string>train</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_6"/>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QFormLayout" name="formLayout">
-           <property name="fieldGrowthPolicy">
-            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-           </property>
-           <item row="1" column="1">
             <widget class="QLabel" name="label_9">
              <property name="text">
               <string>Select time slot:</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="1">
+           <item>
             <widget class="QComboBox" name="selecttimeCombo">
              <property name="enabled">
               <bool>true</bool>
@@ -402,60 +344,118 @@
              </item>
             </widget>
            </item>
-           <item row="5" column="1">
-            <widget class="QLabel" name="label_15">
-             <property name="text">
-              <string>Analysis based on group:</string>
-             </property>
-            </widget>
+           <item>
+            <layout class="QGridLayout" name="gridLayout"/>
            </item>
-           <item row="6" column="1">
-            <widget class="QComboBox" name="agegroupBox">
-             <item>
-              <property name="text">
-               <string>age: 0-14 </string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>age:15-64</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>age &gt; 65 </string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>disable</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>none</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="3" column="1">
+           <item>
             <widget class="QLabel" name="label_13">
              <property name="text">
-              <string>Ignore nodes with frequency below:</string>
+              <string>Ignore nodes with frequency (per hour) below:</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="label_16">
-             <property name="text">
-              <string>per hour</string>
+           <item>
+            <widget class="QSlider" name="horizontalSlider">
+             <property name="maximumSize">
+              <size>
+               <width>1677</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="invertedAppearance">
+              <bool>false</bool>
+             </property>
+             <property name="invertedControls">
+              <bool>false</bool>
              </property>
             </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="sliderValue_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>500</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>Analysis based on group:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="agegroupBox">
+           <item>
+            <property name="text">
+             <string>age: 0-14 </string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>age:15-64</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>age &gt; 65 </string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>disable</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>none</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="formLayout">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+           </property>
+           <item row="6" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout"/>
            </item>
           </layout>
          </item>
         </layout>
        </widget>
+       <zorder>label</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>horizontalSpacer</zorder>
+       <zorder>horizontalSpacer_3</zorder>
+       <zorder>horizontalSpacer_4</zorder>
       </widget>
       <widget class="QWidget" name="tab">
        <property name="sizePolicy">
@@ -890,7 +890,6 @@
  </widget>
  <tabstops>
   <tabstop>selectNodesCombo</tabstop>
-  <tabstop>selecttimeCombo</tabstop>
   <tabstop>sliderValue</tabstop>
   <tabstop>statistics1Table</tabstop>
   <tabstop>statistics2Table</tabstop>
