@@ -87,9 +87,7 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.subScenario = {}
 
         '''
-        self.selectNodesCombo.connect()
-        self.selectCensusCombo()
-        '''
+
         # indicators
         self.tramBox.stateChanged.connect(?)
         self.metroBox.stateChanged.connect(?)
@@ -100,7 +98,7 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.horizontalSlider.valueChanged.connect(?)
         self.agegroupBox.activated.connect(?)
 
-        '''
+
         # analysis
         self.stationDistanceSlider.connect()
         self.sliderValue.connect()
@@ -165,10 +163,10 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         layers = uf.getLegendLayers(self.iface, 'all', 'all')
         nodes_text = self.selectNodesCombo.currentText()
         if nodes_text == '':
-            nodes_text = '2016_RET_ROTTERDAM'
-        cencus_text = self.selectCensusCombo.currentText()
-        if cencus_text == '':
-            cencus_text = 'CBS_2014_Rotterdam_100mFinal'
+            nodes_text = 'Network_Nodes'
+        census_text = self.selectCensusCombo.currentText()
+        if census_text == '':
+            census_text = 'Demographic_Data_Rotterdam_2014(GRID)'
         self.selectNodesCombo.clear()
         self.selectCensusCombo.clear()
         if layers:
@@ -214,11 +212,11 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def loadRotterdamButton(self):
         data_path = os.path.join(os.path.dirname(__file__), 'sample_data', 'Final_Rotterdam_data.qgs')
         self.iface.addProject(data_path)
-        #self.baseAttributes()
+        self.baseAttributes()
 
     def baseAttributes(self):
         # get summary of the attribute
-        layer = uf.getLegendLayerByName(self.iface, "base_gridStatistics")
+        layer = uf.getLegendLayerByName(self.iface, "Population")
         summary = []
         # only use the first attribute in the list
         for feature in layer.getFeatures():
