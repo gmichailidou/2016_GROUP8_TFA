@@ -312,36 +312,6 @@
               <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;
 </string>
              </property>
-             <item>
-              <property name="text">
-               <string>weekdays 6:30-9:00</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>weekdays 16:00-18:30</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>weekdays  9:00-16:00</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>weekends 6:30-9:00</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>weekends 16:00-18:30</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>weekends  9:00-16:00</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item>
@@ -377,31 +347,31 @@
             </widget>
            </item>
            <item>
+            <widget class="QLineEdit" name="sliderValue_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>500</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_6"/>
            </item>
           </layout>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="sliderValue_2">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>500</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_15">
