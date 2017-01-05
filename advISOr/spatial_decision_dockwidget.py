@@ -259,7 +259,7 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         return layer
 
     #
-    ###indicators functions
+    ####indicators functions
     #
 
     def selectfreq(self):
