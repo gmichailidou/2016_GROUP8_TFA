@@ -226,7 +226,7 @@ class SpatialDecision:
     #--------------------------------------------------------------------------
     def run(self):
         """Run method that loads and starts the plugin"""
-
+        #testing github ANDRIAAAAAAAA
         if not self.pluginIsActive:
             self.pluginIsActive = True
 
