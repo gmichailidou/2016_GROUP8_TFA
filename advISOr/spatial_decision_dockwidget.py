@@ -22,10 +22,10 @@
 """
 
 from PyQt4 import QtGui, QtCore, uic
-from qgis.core import *
-from qgis.networkanalysis import *
-from qgis.gui import *
-import processing
+from qgis.core import *                   #error
+from qgis.networkanalysis import *         #error
+from qgis.gui import *                 #error
+import processing                      #error
 
 # matplotlib for the charts
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
@@ -40,7 +40,7 @@ import random
 import csv
 import time
 
-from . import utility_functions as uf
+from . import utility_functions as uf    # error
 
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
@@ -66,8 +66,11 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         # define globals
         self.iface = iface
         self.canvas = self.iface.mapCanvas()
+        self.clickTool = QgsMapToolEmitPoint(self.canvas)
+        self.panTool = QgsMapToolPan(self.canvas)
 
         # set up GUI operation signals
+
 
         # GUI
         self.iface.projectRead.connect(self.updateNodeCencusScenario)
@@ -86,20 +89,24 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.scenarioAttributes = {}
         self.subScenario = {}
 
+
         '''
         self.selectNodesCombo.connect()
         self.selectCensusCombo()
         '''
         # indicators
-        self.tramBox.stateChanged.connect(?)
-        self.metroBox.stateChanged.connect(?)
-        self.busBox.stateChanged.connect(?)
-        self.trainBox.stateChanged.connect(?)
-        self.selecttimeCombo.activated.connect(?)
-        self.horizontalSlider.sliderMoved.connect(?)
-        self.horizontalSlider.valueChanged.connect(?)
-        self.agegroupBox.activated.connect(?)
+        self.sliderValue_2.textChanged.connect(self.sliderTextChanged)
 
+        self.selecttimeCombo.activated.connect(self.setTimeSlot)
+        self.selecttimeCombo.activated.connect(self.selectfreq)
+        self.horizontalSlider.sliderMoved.connect(self.sliderMoved)
+
+        self.horizontalSlider.valueChanged.connect(self.sliderValueChanged)
+
+        self.agegroupBox.activated.connect(self.setAgeGroup)
+
+        # initialize
+        self.sliderInit()
         '''
         # analysis
         self.stationDistanceSlider.connect()
@@ -216,6 +223,9 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.iface.addProject(data_path)
         #self.baseAttributes()
 
+        #initialize
+        self.sliderInit()
+
     def baseAttributes(self):
         # get summary of the attribute
         layer = uf.getLegendLayerByName(self.iface, "base_gridStatistics")
@@ -247,6 +257,92 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             layer_name = 'Nodes'
             layer = uf.getLegendLayerByName(self.iface, layer_name)
         return layer
+
+    #
+    ####indicators functions
+    #
+
+    def selectfreq(self):
+        sel_freq = self.run_mouse()
+
+    def run_mouse(self):
+        self.canvas.setMapTool(self.panTool)
+
+    #6 fields from layer RT Network Nodes appear with full names and user can choose
+    def setTimeSlot(self):
+        value = self.sliderValue_2.text()
+        if self.selecttimeCombo.currentText() == 'Select time-slot':
+            self.horizontalSlider.setEnabled(False)
+            self.sliderValue_2.setEnabled(False)
+        else:
+            self.horizontalSlider.setEnabled(True)
+            self.sliderValue_2.setEnabled(True)
+
+
+    #maximum threshold value
+    def sliderInit(self):
+        value = self.sliderValue_2.text()
+        self.horizontalSlider.setValue(96)
+        self.horizontalSlider.setValue(int(value))
+
+    #check if threshold is empty
+    def sliderTextChanged(self):
+
+        try:
+            self.horizontalSlider.setValue(int(value))
+        except:
+            print 'Fill in a number.'
+
+
+    def sliderMoved(self, value):
+        self.sliderValue_2.setText(str(value))
+
+    #filters the network nodes and shows/keeps only those that have frequency lower or equal than the threshold according to the setTimeSlot(self)
+    def sliderValueChanged(self):
+        value = self.sliderValue_2.text()
+        if self.setTimeSlot() == 'Weekdays - Afternoon Rush Hours' and value > 76:
+            msgBox = QtGui.QMessageBox()
+            msgBox.setText("Maximum frequency value for the selected timeslot is 76.\nChoose a lower (valid) threshold")
+            msgBox.addButton(QtGui.QPushButton('Ok'), QtGui.QMessageBox.RejectRole)
+            message = msgBox.exec_()
+            if message == 0:
+                return
+        elif self.setTimeSlot() == 'Weekdays - Morning Rush Hours' and value > 96:
+            msgBox = QtGui.QMessageBox()
+            msgBox.setText("Maximum frequency value for the selected timeslot is 96.\nChoose a lower (valid) threshold")
+            msgBox.addButton(QtGui.QPushButton('Ok'), QtGui.QMessageBox.RejectRole)
+            message = msgBox.exec_()
+            if message == 0:
+                return
+    def setAgeGroup(self):
+        pass
+
+    '''
+        def sliderInit(self):
+            time_slot = self.setTimeSlot()
+            value = self.sliderValue_2.text()
+            if time_slot == 'Weekdays - Morning Rush Hours':
+                self.horizontalSlider.setValue(96)
+                self.horizontalSlider.setValue(int(value))
+            elif time_slot == 'Weekdays - Afternoon Rush Hours':
+                self.horizontalSlider.setValue(76)
+                self.horizontalSlider.setValue(int(value))
+            elif time_slot == 'Weekdays - Non Rush Hours':
+                self.horizontalSlider.setValue(58)
+                self.horizontalSlider.setValue(int(value))
+            elif time_slot == 'Weekends - Morning Rush Hours':
+                self.horizontalSlider.setValue(72)
+                self.horizontalSlider.setValue(int(value))
+            elif time_slot == 'Weekends - Afternoon Rush Hours':
+                self.horizontalSlider.setValue(58)
+                self.horizontalSlider.setValue(int(value))
+            else:
+                self.horizontalSlider.setValue(34)
+                self.horizontalSlider.setValue(int(value))'''
+
+
+
+
 
     '''
         self.iface.projectRead.connect(self.updateLayers)
