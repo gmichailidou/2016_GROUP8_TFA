@@ -87,8 +87,8 @@
        <widget class="QPushButton" name="createScenarioButton">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>11</y>
+          <x>140</x>
+          <y>10</y>
           <width>200</width>
           <height>29</height>
          </rect>
