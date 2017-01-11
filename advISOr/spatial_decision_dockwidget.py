@@ -367,7 +367,7 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             origins = self.getSelectedLayer().selectedFeatures()
             layer = self.getSelectedLayer()
             if origins > 0:
-                cutoff_distance = self.sliderValue.text()
+                cutoff_distance = uf.convertNumeric(self.sliderValue.text())
                 buffers = {}
                 for point in origins:
                     geom = point.geometry()
