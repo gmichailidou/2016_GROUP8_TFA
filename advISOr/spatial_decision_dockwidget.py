@@ -105,13 +105,13 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.agegroupBox.activated.connect(self.setAgeGroup)
 
         # initialize
-        # self.sliderInit()
+        #self.sliderInit()
         # analysis
         self.sliderValue.textChanged.connect(self.sliderTextChanged)
         self.stationDistanceSlider.sliderMoved.connect(self.sliderMoved)
         # self.stationDistanceSlider.valueChanged.connect(self.sliderValueChanged)
-        self.distanceVisiblecheckBox.stateChanged.connect(self.toggleBufferLayer)
-        self.bufferbutton.clicked.connect.(self.calculatebuffer)
+        #self.distanceVisiblecheckBox.stateChanged.connect(self.toggleBufferLayer)
+        self.bufferbutton.clicked.connect(self.calculatebuffer)
         # self.initialareasVisiblecheckBox.connect()
         # self.criticalVisiblecheckBox.connect()
         self.screenshotButton.clicked.connect(self.savemap)
@@ -364,8 +364,8 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
                     self.refreshCanvas(layer)
 
         def calculateBuffer(self):
-            origins = self.getSelectedLayer().selectedFeatures()
-            layer = self.getSelectedLayer()
+            layer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
+            origins = layer.getFeatures()
             if origins > 0:
                 cutoff_distance = uf.convertNumeric(self.sliderValue.text())
                 buffers = {}
