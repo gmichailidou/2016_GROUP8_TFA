@@ -109,18 +109,18 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         # analysis
         self.sliderValue.textChanged.connect(self.sliderTextChanged)
         self.stationDistanceSlider.sliderMoved.connect(self.sliderMoved)
-        # self.stationDistanceSlider.valueChanged.connect(self.sliderValueChanged)
-        #self.distanceVisiblecheckBox.stateChanged.connect(self.toggleBufferLayer)
-        self.bufferbutton.clicked.connect(self.calculatebuffer)
-        # self.initialareasVisiblecheckBox.connect()
-        # self.criticalVisiblecheckBox.connect()
+        self.bufferbutton.connect(self.calculateBuffer)
+        #self.distanceVisiblecheckBox.connect(self.calculateBuffer)
+        #self.initialareasVisiblecheckBox.connect()
+        #self.criticalVisiblecheckBox.connect()
         self.screenshotButton.clicked.connect(self.savemap)
-        # self.savesenariobuttom.connect()
+        #self.savesenariobuttom.connect()
 
         # report
-        # self.statistics1table.connect()
-        # self.statistics2table.connect()
-        # self.saveStatisticsButtom.connect()
+        #self.statistics1table.connect()
+        #self.statistics2table.connect()
+        #self.saveStatisticsButtom.connect()
+
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
@@ -318,82 +318,84 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
         # analysis functions
 
-        def savemap(self):
-            path = QtGui.QFileDialog.getSaveFileName(self, 'Save File', '', 'PNG(*.png)')
-            if path:
-                self.canvas.saveAsImage(path, None, "PNG")
+    def savemap(self):
+        path = QtGui.QFileDialog.getSaveFileName(self, 'Save File', '', 'PNG(*.png)')
+        if path:
+            self.canvas.saveAsImage(path, None, "PNG")
 
-        def sliderInit(self):
-            value = self.sliderValue.text()
-            self.stationDistanceSlider.setValue(2000)
+    def sliderInit(self):
+        value = self.sliderValue.text()
+        self.stationDistanceSlider.setValue(2000)
+        self.stationDistanceSlider.setValue(int(value))
+
+    def sliderTextChanged(self):
+        value = self.sliderValue.text()
+        try:
             self.stationDistanceSlider.setValue(int(value))
+        except:
+            print 'fill in a number'
 
-        def sliderTextChanged(self):
-            value = self.sliderValue.text()
-            try:
-                self.stationDistanceSlider.setValue(int(value))
-            except:
-                print 'fill in a number'
+    def sliderMoved(self, value):
+        self.sliderValue.setText(str(value))
 
-        def sliderMoved(self, value):
-            self.sliderValue.setText(str(value))
+    def sliderValueChanged(self):
+        current_scenario = self.scenarioCombo.currentText()
+        filename = current_scenario + '_dist2station'
+        raster_layer = uf.getLegendLayerByName(self.iface, filename)
+        if raster_layer:
+            self.styleStationDistance(raster_layer)
 
-        def sliderValueChanged(self):
-            current_scenario = self.scenarioCombo.currentText()
-            filename = current_scenario + '_dist2station'
-            raster_layer = uf.getLegendLayerByName(self.iface, filename)
-            if raster_layer:
-                self.styleStationDistance(raster_layer)
+            # buffer functions
 
-        # buffer functions
+    def getBufferCutoff(self):
+        cutoff = self.bufferCutoffEdit.text()
+        if uf.isNumeric(cutoff):
+            return uf.convertNumeric(cutoff)
+        else:
+            return 0
 
-        def toggleBufferLayer(self):
-            cur_user = self.selectCensusCombo.currentText()
-            layer = uf.getLegendLayerByName(self.iface, 'Buffers_{}'.format(cur_user))
-            if not layer:
-                self.bufferbutton.setChecked(False)
-                return
-            else:
-                state = self.bufferbutton.checkState()
+    def calculateBuffer(self):
+        layer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
+        origins = layer.getFeatures()
+        if origins > 0:
+            cutoff_distance = 200
+            buffers = {}
+            for point in origins:
+                geom = point.geometry()
+                buffers[point.id()] = geom.buffer(cutoff_distance,12).asPolygon()
+            # store the buffer results in temporary layer called "Buffers"
+            buffer_layer = uf.getLegendLayerByName(self.iface, "Buffers")
+            # create one if it doesn't exist
+            if not buffer_layer:
+                attribs = ['ID', 'DISTANCE']
+                types = [QtCore.QVariant.String, QtCore.QVariant.Double]
+                buffer_layer = uf.createTempLayer('Buffers','POLYGON',layer.crs().postgisSrid(), attribs, types)
+                buffer_layer.setLayerName('Buffers')
+                uf.loadTempLayer(buffer_layer)
+                legend = self.iface.legendInterface()
+                legend.setLayerVisible(buffer_layer, False)
 
-                if state == 0:
-                    self.iface.legendInterface().setLayerVisible(layer, False)
-                    self.refreshCanvas(layer)
-                elif state == 2:
-                    self.iface.legendInterface().setLayerVisible(layer, True)
-                    self.refreshCanvas(layer)
+            # insert buffer polygons
+            geoms = []
+            values = []
+            for buffer in buffers.iteritems():
+                # each buffer has an id and a geometry
+                geoms.append(buffer[1])
+                # in the case of values, it expects a list of multiple values in each item - list of lists
+                values.append([buffer[0], cutoff_distance])
+            uf.insertTempFeatures(buffer_layer, geoms, values)
+            self.refreshCanvas(buffer_layer)
 
-        def calculateBuffer(self):
-            layer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
-            origins = layer.getFeatures()
-            if origins > 0:
-                cutoff_distance = uf.convertNumeric(self.sliderValue.text())
-                buffers = {}
-                for point in origins:
-                    geom = point.geometry()
-                    buffers[point.id()] = geom.buffer(cutoff_distance, 12).asPolygon()
-                # store the buffer results in temporary layer called "Buffers"
-                buffer_layer = uf.getLegendLayerByName(self.iface, "Buffers")
-                # create one if it doesn't exist
-                if not buffer_layer:
-                    attribs = ['id', 'distance']
-                    types = [QtCore.QVariant.String, QtCore.QVariant.Double]
-                    buffer_layer = uf.createTempLayer('Buffers', 'POLYGON', layer.crs().postgisSrid(), attribs, types)
-                    uf.loadTempLayer(buffer_layer)
-                    buffer_layer.setLayerName('Buffers')
-                # insert buffer polygons
-                geoms = []
-                values = []
-                for buffer in buffers.iteritems():
-                    # each buffer has an id and a geometry
-                    geoms.append(buffer[1])
-                    # in the case of values, it expects a list of multiple values in each item - list of lists
-                    values.append([buffer[0], cutoff_distance])
-                uf.insertTempFeatures(buffer_layer, geoms, values)
-                self.refreshCanvas(buffer_layer)
+    def getSelectedLayer(self):
+        layer_name = self.selectCensusCombo.currentText()
+        layer = uf.getLegendLayerByName(self.iface, layer_name)
+        return layer
 
-        def getSelectedLayer(self):
-            layer_name = self.selectCensusCombo.currentText()
-            layer = uf.getLegendLayerByName(self.iface, layer_name)
-            return layer
+    # show buffers with nodes inside in order to delete them
+    def getbufferwithnodes(self):
+        NetworkNodes_layer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
+        self.calculateBuffer()
+        buffer = uf.getLegendLayerByName(self.iface, 'Buffers_{}'.format(self.selectCensusCombo.currentText()))
 
+        features = uf.getFeaturesByIntersection(buffer, NetworkNodes_layer, True)
+        return features
