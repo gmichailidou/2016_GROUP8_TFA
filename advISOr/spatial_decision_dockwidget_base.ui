@@ -78,7 +78,7 @@
        <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="dataTab">
        <attribute name="title">
@@ -482,87 +482,29 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_10">
+            <widget class="QPushButton" name="nodesFrequencyLayer">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
              <property name="minimumSize">
               <size>
-               <width>250</width>
+               <width>0</width>
                <height>0</height>
               </size>
              </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Trebuchet MS</family>
-               <pointsize>10</pointsize>
-               <weight>50</weight>
-               <italic>true</italic>
-               <bold>false</bold>
-              </font>
-             </property>
              <property name="styleSheet">
-              <string notr="true">font: italic 10pt &quot;Trebuchet MS&quot;;</string>
+              <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
              </property>
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Select group of people to apply the analysis&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <string>Create nodes layer filtered by the frequency threshold</string>
              </property>
             </widget>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_6">
-             <item>
-              <widget class="QComboBox" name="agegroupBox">
-               <item>
-                <property name="text">
-                 <string>None</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Age: 0-14 </string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Age:15-24</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Age: 25-44</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Age: 45-64</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Age &gt; 65 </string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Disable people</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
+            <layout class="QHBoxLayout" name="horizontalLayout_6"/>
            </item>
           </layout>
          </item>

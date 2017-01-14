@@ -25,7 +25,8 @@ from PyQt4 import QtGui, QtCore, uic
 from qgis.core import *                   #error
 from qgis.networkanalysis import *         #error
 from qgis.gui import *                 #error
-import processing                      #error
+import processing
+import webbrowser  #error
 
 # matplotlib for the charts
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
@@ -81,7 +82,7 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
         # data
         self.loadRotterdamdataButton.clicked.connect(self.warningLoadData)
-        #self.createScenarioButton.clicked.connect(self.createScenario)
+        self.createScenarioButton.clicked.connect(self.createScenario)
         #self.scenarioCombo.currentIndexChanged.connect(self.scenarioChanged)
         self.scenarioPath = QgsProject.instance().homePath()
         self.scenarioCombo.clear()
@@ -89,28 +90,30 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.scenarioAttributes = {}
         self.subScenario = {}
 
-
-
+        # add button icons
+        #self.bigiconButton.setIcon(QtGui.QIcon(':icons/pascal.png'))
+        self.bigiconButton.clicked.connect(self.openinBrowser)
 
         # indicators
-        self.sliderValue_2.textChanged.connect(self.sliderTextChanged)
+        self.sliderValue_2.textChanged.connect(self.sliderTextChanged2)
 
         self.selecttimeCombo.activated.connect(self.setTimeSlot)
         self.selecttimeCombo.activated.connect(self.selectfreq)
-        self.horizontalSlider.sliderMoved.connect(self.sliderMoved)
+        self.horizontalSlider.sliderMoved.connect(self.sliderMoved2)
 
-        self.horizontalSlider.valueChanged.connect(self.sliderValueChanged)
+        #self.horizontalSlider.valueChanged.connect(self.sliderValueChanged)
+        self.nodesFrequencyLayer.clicked.connect(self.warningFrequencyNodes)
 
-
-        self.agegroupBox.activated.connect(self.setAgeGroup)
+        #self.agegroupBox.activated.connect(self.setAgeGroup)
 
         # initialize
         #self.sliderInit()
+
         # analysis
         self.sliderValue.textChanged.connect(self.sliderTextChanged)
         self.stationDistanceSlider.sliderMoved.connect(self.sliderMoved)
-        self.bufferbutton.connect(self.calculateBuffer)
-        #self.distanceVisiblecheckBox.connect(self.calculateBuffer)
+        self.bufferbutton.clicked.connect(self.calculateBuffer)
+        self.distanceVisiblecheckBox.stateChanged.connect(self.distanceVisible)
         #self.initialareasVisiblecheckBox.connect()
         #self.criticalVisiblecheckBox.connect()
         self.screenshotButton.clicked.connect(self.savemap)
@@ -127,6 +130,10 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         event.accept()
 
     # data functions
+
+    def openinBrowser(self):
+        webbrowser.open('https://github.com/gmichailidou/2016_GROUP8_advISOr/wiki', new=2)
+
     def getScenarios(self):
         scenarios = [self.scenarioCombo.itemText(i) for i in range(self.scenarioCombo.count())]
         return scenarios
@@ -257,62 +264,150 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             layer = uf.getLegendLayerByName(self.iface, layer_name)
         return layer
 
-    #
-    ####indicators functions
-    #
+        #
+        ####indicators functions
+        #
 
+        # not fctnl
     def selectfreq(self):
         sel_freq = self.run_mouse()
 
+        # not fctnl
     def run_mouse(self):
         self.canvas.setMapTool(self.panTool)
 
-    #6 fields from layer RT Network Nodes appear with full names and user can choose
+        # OK - 6 fields (timeslots) from layer RT Network Nodes appear and user can choose, Buttons enable only if a timeslot is chosen
     def setTimeSlot(self):
         value = self.sliderValue_2.text()
-        if self.selecttimeCombo.currentText() == 'Select time-slot':
+        timeslot = self.selecttimeCombo.currentText()
+        if timeslot == 'Select time-slot':
             self.horizontalSlider.setEnabled(False)
             self.sliderValue_2.setEnabled(False)
         else:
             self.horizontalSlider.setEnabled(True)
             self.sliderValue_2.setEnabled(True)
 
+            nodeLayer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
+            if timeslot == 'Weekdays - Morning Rush Hours':
+                timeslot_field = 'Rh1_Wd/h'
+                return timeslot_field
+            elif timeslot == 'Weekdays - Afternoon Rush Hours':
+                timeslot_field = 'Rh2_Wd/h'
+                return timeslot_field
+            elif timeslot == 'Weekdays - Non Rush Hours':
+                timeslot_field = 'NRh_Wd/h'
+                return timeslot_field
+            elif timeslot == 'Weekends - Morning Rush Hours':
+                timeslot_field = 'Rh1_We/h'
+                return timeslot_field
+            elif timeslot == 'Weekends - Afternoon Rush Hours':
+                timeslot_field = 'Rh2_We/h'
+                return timeslot_field
+            elif timeslot == 'Weekends - Non Rush Hours':
+                timeslot_field = 'NRh_We/h'
+                return timeslot_field
 
-    #maximum threshold value
+        # Ok - maximum threshold value for the slider(threshold)
     def sliderInit(self):
         value = self.sliderValue_2.text()
         self.horizontalSlider.setValue(96)
         self.horizontalSlider.setValue(int(value))
 
-    #check if threshold is empty
-    def sliderTextChanged(self):
-
+        # ??. Check if threshold is empty
+    def sliderTextChanged2(self):
+        value = self.sliderValue_2.text()
         try:
             self.horizontalSlider.setValue(int(value))
         except:
             print 'Fill in a number.'
 
-
-    def sliderMoved(self, value):
+        # Ok
+    def sliderMoved2(self, value):
         self.sliderValue_2.setText(str(value))
 
-    #filters the network nodes and shows/keeps only those that have frequency lower or equal than the threshold according to the setTimeSlot(self)
+        # filters the network nodes and shows/keeps only those that have frequency lower or equal than the threshold according to the setTimeSlot(self)
     def sliderValueChanged(self):
         value = self.sliderValue_2.text()
         if self.setTimeSlot() == 'Weekdays - Afternoon Rush Hours' and value > 76:
             msgBox = QtGui.QMessageBox()
-            msgBox.setText("Maximum frequency value for the selected timeslot is 76.\nChoose a lower (valid) threshold")
+            msgBox.setText(
+                "Maximum frequency value for the selected timeslot is 76.\nChoose a lower (valid) threshold")
             msgBox.addButton(QtGui.QPushButton('Ok'), QtGui.QMessageBox.RejectRole)
             message = msgBox.exec_()
             if message == 0:
                 return
         elif self.setTimeSlot() == 'Weekdays - Morning Rush Hours' and value > 96:
             msgBox = QtGui.QMessageBox()
-            msgBox.setText("Maximum frequency value for the selected timeslot is 96.\nChoose a lower (valid) threshold")
+            msgBox.setText(
+                "Maximum frequency value for the selected timeslot is 96.\nChoose a lower (valid) threshold")
             msgBox.addButton(QtGui.QPushButton('Ok'), QtGui.QMessageBox.RejectRole)
             message = msgBox.exec_()
             if message == 0:
                 return
+
+    def warningFrequencyNodes(self):
+            # check if layer already exists
+        current_scenario = self.scenarioCombo.currentText()
+        layer = uf.getLegendLayerByName(self.iface, current_scenario + '_nodes_filtered')
+        if layer:
+            msgBox = QtGui.QMessageBox()
+            msgBox.setText(
+                "The layer for the nodes filtering (by the frequency threshold) is already calculated for this scenario, overwrite current layer?")
+            msgBox.setStandardButtons(QtGui.QMessageBox.Yes)
+            msgBox.addButton(QtGui.QMessageBox.No)
+            msgBox.setDefaultButton(QtGui.QMessageBox.No)
+            if msgBox.exec_() == QtGui.QMessageBox.Yes:
+                self.layerFreqNodes()
+        else:
+            self.layerFreqNodes()
+
+    def filterNodes(self):
+        nodesLayer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
+        nodes = nodesLayer.getFeatures()
+        value = uf.convertNumeric(self.sliderValue_2.text())
+        timeslot_field = self.setTimeSlot()
+        filtered_points = []
+        attributes= []
+        for feature in nodes:
+            #print feature
+            column = feature.attribute(timeslot_field)
+            #print column
+            if column > value:
+                values = []
+                values.append(feature.attribute('id'))
+                values.append(feature.attribute('name'))
+                values.append(feature.attribute('ModeType'))
+                values.append(feature.attribute(timeslot_field))
+
+                attributes.append(values)
+                filtered_points.append(feature.geometry().asPoint())
+
+        return filtered_points,attributes
+
+    def layerFreqNodes(self):
+            # delete old layer if present
+        current_scenario = self.scenarioCombo.currentText()
+        old_layer = uf.getLegendLayerByName(self.iface, current_scenario + '_nodes_filtered')
+        if old_layer:
+            QgsMapLayerRegistry.instance().removeMapLayer(old_layer.id())
+
+            # create one if it doesn't exist and add suffix for the scenario
+        nodeLayer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
+        current_scenario = self.scenarioCombo.currentText()
+        freq_layer = uf.getLegendLayerByName(self.iface, current_scenario + '_nodes_filtered')
+        if not freq_layer:
+            timeslot_field = self.setTimeSlot()
+            attribs = ['id', 'name', 'ModeType', timeslot_field]
+            types = [QtCore.QVariant.Int, QtCore.QVariant.String, QtCore.QVariant.String, QtCore.QVariant.Int]
+            freq_layer = uf.createTempLayer(current_scenario + '_nodes_filtered','POINT',nodeLayer.crs().postgisSrid(), attribs, types)
+            freq_layer.setLayerName(current_scenario + '_nodes_filtered')
+            uf.loadTempLayer(freq_layer)
+
+            # insert pointsgeom & values
+        tuple = self.filterNodes()
+
+        uf.insertTempFeatures(freq_layer, tuple[0], tuple[1])
+
     def setAgeGroup(self):
         pass
 
@@ -347,6 +442,21 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
             # buffer functions
 
+    def distanceVisible(self):
+        #current_scenario = self.scenarioCombo.currentText()
+        layer_name ="Buffers"
+        checked = self.distanceVisiblecheckBox.isChecked()
+        if checked is True:
+            self.setLayerVisibility(layer_name, True)
+        elif checked is False:
+            self.setLayerVisibility(layer_name, False)
+
+    def setLayerVisibility(self, layer_name, bool):
+        layer = uf.getLegendLayerByName(self.iface, layer_name)
+        if layer:
+            legend = self.iface.legendInterface()
+            legend.setLayerVisible(layer, bool)
+
     def getBufferCutoff(self):
         cutoff = self.bufferCutoffEdit.text()
         if uf.isNumeric(cutoff):
@@ -354,37 +464,44 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         else:
             return 0
 
+    def getSelectedLayer(self):
+        layer_name = self.selectCensusCombo.currentText()
+        print layer_name
+        layer = uf.getLegendLayerByName(self.iface, layer_name)
+        return layer
+
     def calculateBuffer(self):
-        layer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
+        # store the buffer results in temporary layer called "Buffers"
+        buffer_layer = uf.getLegendLayerByName(self.iface, "Buffers")
+        if buffer_layer:
+            ids = uf.getAllFeatureIds(buffer_layer)
+            buffer_layer.deleteFeatures(ids)
+        layer = self.getSelectedLayer()
         origins = layer.getFeatures()
         if origins > 0:
-            cutoff_distance = 200
-            buffers = {}
+            cutoff_distance = uf.convertNumeric(self.sliderValue.text())
+            buffers = []
+            attributes = []
             for point in origins:
+                values = []
+                values.append(point.attribute('sid'))
+                values.append(point.attribute('inw2014'))
+                values.append(point.attribute('popden10m2'))
+                attributes.append(values)
                 geom = point.geometry()
-                buffers[point.id()] = geom.buffer(cutoff_distance,12).asPolygon()
-            # store the buffer results in temporary layer called "Buffers"
-            buffer_layer = uf.getLegendLayerByName(self.iface, "Buffers")
+                buffers.append(geom.buffer(cutoff_distance,12).asPolygon())
             # create one if it doesn't exist
             if not buffer_layer:
-                attribs = ['ID', 'DISTANCE']
-                types = [QtCore.QVariant.String, QtCore.QVariant.Double]
+                attribs = ['sid','inw2014','popden10m2']
+                types = [QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double]
                 buffer_layer = uf.createTempLayer('Buffers','POLYGON',layer.crs().postgisSrid(), attribs, types)
                 buffer_layer.setLayerName('Buffers')
                 uf.loadTempLayer(buffer_layer)
                 legend = self.iface.legendInterface()
                 legend.setLayerVisible(buffer_layer, False)
-
             # insert buffer polygons
-            geoms = []
-            values = []
-            for buffer in buffers.iteritems():
-                # each buffer has an id and a geometry
-                geoms.append(buffer[1])
-                # in the case of values, it expects a list of multiple values in each item - list of lists
-                values.append([buffer[0], cutoff_distance])
-            uf.insertTempFeatures(buffer_layer, geoms, values)
-            self.refreshCanvas(buffer_layer)
+            uf.insertTempFeatures(buffer_layer, buffers , attributes)
+
 
     def getSelectedLayer(self):
         layer_name = self.selectCensusCombo.currentText()
@@ -395,7 +512,10 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def getbufferwithnodes(self):
         NetworkNodes_layer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
         self.calculateBuffer()
-        buffer = uf.getLegendLayerByName(self.iface, 'Buffers_{}'.format(self.selectCensusCombo.currentText()))
+        buffer = uf.getLegendLayerByName(self.iface, 'Buffers')
 
         features = uf.getFeaturesByIntersection(buffer, NetworkNodes_layer, True)
+        buffer.deleteFeature(features)
+        buffer.updateFields()
+
         return features

@@ -13,7 +13,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/advISOr$spatial_decision_dockwidget.coverage" NAME="spatial_decision_dockwidget Coverage Results" MODIFIED="1484167170620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/advISOr$spatial_decision_dockwidget.coverage" NAME="spatial_decision_dockwidget Coverage Results" MODIFIED="1484310116480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="spatial_decision_dockwidget.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <file leaf-file-name="pb_tool.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="400" column="23" selection-start-line="400" selection-start-column="23" selection-end-line="400" selection-end-column="23" />
+            <state relative-caret-position="649">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,9 +37,27 @@
       <file leaf-file-name="utility_functions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14300">
-              <caret line="658" column="17" selection-start-line="658" selection-start-column="4" selection-end-line="658" selection-end-column="18" />
+            <state relative-caret-position="438">
+              <caret line="746" column="22" selection-start-line="746" selection-start-column="22" selection-end-line="746" selection-end-column="22" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spatial_decision_dockwidget.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-385">
+              <caret line="374" column="30" selection-start-line="374" selection-start-column="30" selection-end-line="374" selection-end-column="30" />
+              <folding>
+                <element signature="e#1180#1216#0" expanded="true" />
+                <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+                <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+                <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+                <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+                <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+                <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,6 +67,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/pb_tool.cfg" />
         <option value="$PROJECT_DIR$/spatial_decision_dockwidget.py" />
       </list>
     </option>
@@ -114,7 +133,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/backup/AdvISOr8-1-2017/2016_GROUP8_advISOr/advISOr" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager" selected="Python.spatial_decision_dockwidget">
@@ -371,19 +390,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18562232" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22424893" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25963718" sideWeight="0.27092275" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17687075" sideWeight="0.2950644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25963718" sideWeight="0.7290773" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17687075" sideWeight="0.7049356" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39909297" sideWeight="0.49785408" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -413,7 +432,223 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15818">
+          <caret line="727" column="39" selection-start-line="727" selection-start-column="39" selection-end-line="727" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15818">
+          <caret line="727" column="39" selection-start-line="727" selection-start-column="39" selection-end-line="727" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15818">
+          <caret line="727" column="39" selection-start-line="727" selection-start-column="39" selection-end-line="727" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16742">
+          <caret line="769" column="42" selection-start-line="769" selection-start-column="42" selection-end-line="769" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16742">
+          <caret line="769" column="42" selection-start-line="769" selection-start-column="42" selection-end-line="769" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -429,7 +664,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -445,7 +688,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -453,7 +704,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -461,7 +720,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -469,7 +736,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -477,7 +752,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -486,19 +769,35 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utility_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14300">
-          <caret line="658" column="17" selection-start-line="658" selection-start-column="4" selection-end-line="658" selection-end-column="18" />
+        <state relative-caret-position="438">
+          <caret line="746" column="22" selection-start-line="746" selection-start-column="22" selection-end-line="746" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spatial_decision_dockwidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="400" column="23" selection-start-line="400" selection-start-column="23" selection-end-line="400" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="-385">
+          <caret line="374" column="30" selection-start-line="374" selection-start-column="30" selection-end-line="374" selection-end-column="30" />
+          <folding>
+            <element signature="e#1180#1216#0" expanded="true" />
+            <marker date="1484353081763" expanded="true" signature="3178:3318" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="3989:4265" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="4480:4651" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="10252:10530" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="14685:15539" placeholder="..." />
+            <marker date="1484353081763" expanded="true" signature="18864:20415" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
