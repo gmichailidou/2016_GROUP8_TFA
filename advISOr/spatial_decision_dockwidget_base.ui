@@ -7,7 +7,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>626</width>
+    <width>675</width>
     <height>839</height>
    </rect>
   </property>
@@ -47,10 +47,17 @@
       </property>
      </spacer>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QToolButton" name="bigiconButton">
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
       <property name="text">
        <string>...</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/advisor1.png</normaloff>icons/advisor1.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -68,17 +75,17 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="minimumSize">
-       <size>
-        <width>260</width>
-        <height>0</height>
-       </size>
-      </property>
       <property name="styleSheet">
        <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
       </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
       <property name="currentIndex">
        <number>1</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
       </property>
       <widget class="QWidget" name="dataTab">
        <attribute name="title">
@@ -87,8 +94,8 @@
        <widget class="QPushButton" name="createScenarioButton">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>11</y>
+          <x>120</x>
+          <y>20</y>
           <width>200</width>
           <height>29</height>
          </rect>
@@ -117,12 +124,12 @@
          <rect>
           <x>10</x>
           <y>57</y>
-          <width>631</width>
-          <height>311</height>
+          <width>421</width>
+          <height>421</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QLabel" name="label_3">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -140,11 +147,11 @@
             <string notr="true">font: &quot;Trebuchet MS&quot;;</string>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This plugin includes sample data &lt;br/&gt;fom the city of Rotterdam:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;This plugin includes sample data &lt;br/&gt;fom the city of Rotterdam&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="loadRotterdamdataButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -166,7 +173,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QLabel" name="label_4">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -178,11 +185,11 @@
             <string notr="true">font: &quot;Trebuchet MS&quot;;</string>
            </property>
            <property name="text">
-            <string>Layer with the nodes (stops) of the public transport netwrok</string>
+            <string>Select Nodes Layer of a public transport netwrok</string>
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QComboBox" name="selectNodesCombo">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -210,7 +217,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QLabel" name="label_5">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -222,11 +229,11 @@
             <string notr="true">font: &quot;Trebuchet MS&quot;;</string>
            </property>
            <property name="text">
-            <string>Layer with Census data per neighbourhood:</string>
+            <string>Select Age group layer for Analysis </string>
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QComboBox" name="selectCensusCombo">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -245,332 +252,7 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLabel" name="label_14">
-           <property name="text">
-            <string>Layer with Census data per grid cell:</string>
-           </property>
-          </widget>
-         </item>
         </layout>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="analysisTab">
-       <attribute name="title">
-        <string>Indicators</string>
-       </attribute>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>15</x>
-          <y>268</y>
-          <width>16</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>11</x>
-          <y>11</y>
-          <width>418</width>
-          <height>458</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <item>
-            <widget class="QLabel" name="label_9">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>250</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Trebuchet MS</family>
-               <pointsize>10</pointsize>
-               <weight>50</weight>
-               <italic>true</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: italic 10pt &quot;Trebuchet MS&quot;;</string>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;                                 Apply analysis based on a specific timeslot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="selecttimeCombo">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;
-</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>Select time-slot</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Weekdays - Morning Rush Hours</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Weekdays - Afternoon Rush Hours</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Weekdays - Non Rush Hours</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Weekends - Morning Rush Hours</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Weekends - Afternoon Rush Hours</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Weekends - Non Rush Hours</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout"/>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_13">
-             <property name="text">
-              <string>Ignore nodes with frequency (per hour) below:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSlider" name="horizontalSlider">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>1677</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Trebuchet MS</family>
-               <pointsize>9</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="mouseTracking">
-              <bool>true</bool>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="minimum">
-              <number>0</number>
-             </property>
-             <property name="maximum">
-              <number>96</number>
-             </property>
-             <property name="value">
-              <number>30</number>
-             </property>
-             <property name="sliderPosition">
-              <number>30</number>
-             </property>
-             <property name="tracking">
-              <bool>true</bool>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="invertedAppearance">
-              <bool>false</bool>
-             </property>
-             <property name="invertedControls">
-              <bool>false</bool>
-             </property>
-             <property name="tickPosition">
-              <enum>QSlider::TicksBelow</enum>
-             </property>
-             <property name="tickInterval">
-              <number>5</number>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="sliderValue_2">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>22</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>30</string>
-             </property>
-             <property name="cursorPosition">
-              <number>2</number>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="nodesFrequencyLayer">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
-             </property>
-             <property name="text">
-              <string>Create nodes layer filtered by the frequency threshold</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_6"/>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <item>
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QComboBox" name="scenarioCombo">
-        <property name="geometry">
-         <rect>
-          <x>168</x>
-          <y>507</y>
-          <width>155</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_2">
-        <property name="geometry">
-         <rect>
-          <x>168</x>
-          <y>481</y>
-          <width>155</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Trebuchet MS</family>
-          <pointsize>11</pointsize>
-          <weight>50</weight>
-          <italic>true</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font: italic 11pt &quot;Trebuchet MS&quot;;
-</string>
-        </property>
-        <property name="text">
-         <string>Current Scenario:</string>
-        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab">
@@ -593,26 +275,67 @@
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_5">
+         <item row="4" column="0">
+          <widget class="QPushButton" name="screenshotButton">
+           <property name="text">
+            <string>Make Screenshot Map</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="1" column="0">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="checkBox_6">
+             <property name="text">
+              <string>Show critical isolated areas</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
          <item row="1" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_10">
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_13">
              <item>
-              <widget class="QLabel" name="label_7">
+              <widget class="QPushButton" name="initialareas">
                <property name="text">
-                <string>Detect initialize isolated areas</string>
+                <string>Detect initial isolated areas</string>
                </property>
               </widget>
              </item>
-             <item>
+             <item alignment="Qt::AlignHCenter">
               <widget class="QLabel" name="label_8">
+               <property name="layoutDirection">
+                <enum>Qt::RightToLeft</enum>
+               </property>
                <property name="text">
-                <string>Ignore grid cells with population below:</string>
+                <string>Ignore buffer area with population below (max population 815):</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QLineEdit" name="populationthreshold"/>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_5">
+               <property name="text">
+                <string>Show initial isolated areas</string>
+               </property>
+              </widget>
              </item>
              <item>
               <spacer name="verticalSpacer">
@@ -626,13 +349,6 @@
                 </size>
                </property>
               </spacer>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="checkBox_5">
-               <property name="text">
-                <string>Show initial isolated areas</string>
-               </property>
-              </widget>
              </item>
             </layout>
            </item>
@@ -789,38 +505,379 @@
            </item>
           </layout>
          </item>
-         <item row="3" column="0">
-          <widget class="QPushButton" name="screenshotButton">
+         <item row="2" column="0">
+          <widget class="QPushButton" name="criticalarea">
            <property name="text">
-            <string>Make Screenshot Map</string>
+            <string>Detect critical isolated areas</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <layout class="QGridLayout" name="gridLayout_4">
-           <item row="4" column="0">
-            <widget class="QCheckBox" name="checkBox_6">
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="savesenariobuttom">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>570</y>
+          <width>599</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save Scenario</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="analysisTab">
+       <attribute name="title">
+        <string>Indicators</string>
+       </attribute>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>268</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>11</y>
+          <width>418</width>
+          <height>458</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_9">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Trebuchet MS</family>
+               <pointsize>10</pointsize>
+               <weight>50</weight>
+               <italic>true</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: italic 10pt &quot;Trebuchet MS&quot;;</string>
+             </property>
              <property name="text">
-              <string>Show critical isolated areas</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; font-style:normal; color:#000000;&quot;&gt;Apply analysis based on a specific timeslot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_19">
+           <item>
+            <widget class="QComboBox" name="selecttimeCombo">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;
+</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Select time-slot</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Weekdays - Morning Rush Hours</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Weekdays - Afternoon Rush Hours</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Weekdays - Non Rush Hours</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Weekends - Morning Rush Hours</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Weekends - Afternoon Rush Hours</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Weekends - Non Rush Hours</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_10">
              <property name="text">
-              <string>Ignore isolated areas with population density below:</string>
+              <string/>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_18">
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="label_16">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Trebuchet MS</family>
+               <pointsize>10</pointsize>
+               <weight>50</weight>
+               <italic>true</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: italic 10pt &quot;Trebuchet MS&quot;;</string>
+             </property>
              <property name="text">
-              <string>Detect critical isolated areas</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; font-style:normal; color:#000002;&quot;&gt;Ignore nodes from which modes pass less than&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
-            <spacer name="verticalSpacer_3">
+           <item>
+            <widget class="QSlider" name="horizontalSlider">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>1677</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Trebuchet MS</family>
+               <pointsize>9</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="mouseTracking">
+              <bool>true</bool>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>35</number>
+             </property>
+             <property name="value">
+              <number>18</number>
+             </property>
+             <property name="sliderPosition">
+              <number>18</number>
+             </property>
+             <property name="tracking">
+              <bool>true</bool>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="invertedAppearance">
+              <bool>false</bool>
+             </property>
+             <property name="invertedControls">
+              <bool>false</bool>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksBelow</enum>
+             </property>
+             <property name="tickInterval">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLineEdit" name="sliderValue_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>18</string>
+             </property>
+             <property name="cursorPosition">
+              <number>2</number>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="label_15">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Trebuchet MS</family>
+               <pointsize>10</pointsize>
+               <weight>50</weight>
+               <italic>true</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: italic 10pt &quot;Trebuchet MS&quot;;</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:normal; color:#010107;&quot;&gt;per hour&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="nodesFrequencyLayer">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Create nodes layer filtered by the frequency threshold</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <spacer name="verticalSpacer_4">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
@@ -832,24 +889,53 @@
              </property>
             </spacer>
            </item>
-           <item row="2" column="0">
-            <widget class="QLineEdit" name="densitythreshold"/>
-           </item>
           </layout>
          </item>
         </layout>
        </widget>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QComboBox" name="scenarioCombo">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>570</y>
-          <width>599</width>
-          <height>29</height>
+          <x>168</x>
+          <y>507</y>
+          <width>155</width>
+          <height>24</height>
          </rect>
         </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 9pt &quot;Trebuchet MS&quot;;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>168</x>
+          <y>481</y>
+          <width>155</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Trebuchet MS</family>
+          <pointsize>11</pointsize>
+          <weight>50</weight>
+          <italic>true</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: italic 11pt &quot;Trebuchet MS&quot;;
+</string>
+        </property>
         <property name="text">
-         <string>Save Scenario</string>
+         <string>Current Scenario:</string>
         </property>
        </widget>
       </widget>
@@ -872,6 +958,15 @@
             <height>0</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <family>Trebuchet MS</family>
+            <pointsize>9</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -880,23 +975,256 @@
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
-            <string>Initial Areas</string>
+            <string>Parameters Summary</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_3">
-            <item row="0" column="0">
-             <widget class="QTableWidget" name="statistics1Table">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <widget class="QLabel" name="label_7">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>100</y>
+              <width>131</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Trebuchet MS</family>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Age Group:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_13">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>50</y>
+              <width>161</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Trebuchet MS</family>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Time slot:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_14">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>140</y>
+              <width>161</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Trebuchet MS</family>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Freqeuncy Threshold</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_17">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>180</y>
+              <width>161</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Trebuchet MS</family>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Buffer Distance </string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_18">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>220</y>
+              <width>161</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Trebuchet MS</family>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Population Threshold</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="getinfo">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>501</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Get info </string>
+            </property>
+           </widget>
+           <widget class="QListWidget" name="textagegroup">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>100</y>
+              <width>161</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>91</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor" stdset="0">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+           </widget>
+           <widget class="QListWidget" name="texttimeslot">
+            <property name="geometry">
+             <rect>
+              <x>210</x>
+              <y>50</y>
+              <width>291</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>91</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor" stdset="0">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+           </widget>
+           <widget class="QListWidget" name="textfreq">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>140</y>
+              <width>161</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>91</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor" stdset="0">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+           </widget>
+           <widget class="QListWidget" name="textbufferdist">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>180</y>
+              <width>161</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>91</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor" stdset="0">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+           </widget>
+           <widget class="QListWidget" name="popthreshold">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>220</y>
+              <width>161</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>91</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor" stdset="0">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_3">
            <property name="sizePolicy">
@@ -908,18 +1236,35 @@
            <attribute name="title">
             <string>Critical Areas</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_2">
-            <item row="0" column="0">
-             <widget class="QTableWidget" name="statistics2Table">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <widget class="QTableWidget" name="statisticsTable">
+            <property name="geometry">
+             <rect>
+              <x>-60</x>
+              <y>10</y>
+              <width>691</width>
+              <height>541</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="displayStyleButton">
+            <property name="geometry">
+             <rect>
+              <x>260</x>
+              <y>20</y>
+              <width>93</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>PushButton</string>
+            </property>
+           </widget>
           </widget>
          </widget>
         </item>
@@ -940,8 +1285,7 @@
  <tabstops>
   <tabstop>selectNodesCombo</tabstop>
   <tabstop>sliderValue</tabstop>
-  <tabstop>statistics1Table</tabstop>
-  <tabstop>statistics2Table</tabstop>
+  <tabstop>statisticsTable</tabstop>
  </tabstops>
  <resources/>
  <connections/>
