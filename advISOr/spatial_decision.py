@@ -3,7 +3,7 @@
 /***************************************************************************
  SpatialDecision
                                  A QGIS plugin
- This is a SDSS template for the GEO1005 course
+ This is a SDSS plugin for the detection of the disconnected areas from a public transport network.
                               -------------------
         begin                : 2015-11-02
         git sha              : $Format:%H$
@@ -37,7 +37,7 @@ except ImportError, e:
     from .external import xlrd as xl
 
 # setup for remote debugging. Pycharm professional, only
-is_debug = True
+is_debug = False
 try:
     import pydevd
     has_pydevd = True
@@ -79,10 +79,10 @@ class SpatialDecision:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&SDSS Template')
+        self.menu = self.tr('advISOr')
         # TODO: We are going to let the user set this up in a future iteration
-        self.toolbar = self.iface.addToolBar(u'SpatialDecision')
-        self.toolbar.setObjectName(u'SpatialDecision')
+        self.toolbar = self.iface.addToolBar('SpatialDecision')
+        self.toolbar.setObjectName('SpatialDecision')
 
         #print "** INITIALIZING SpatialDecision"
         if has_pydevd and is_debug:
@@ -187,7 +187,7 @@ class SpatialDecision:
         icon_path = self.plugin_dir + '/icons/icon.png'
         self.add_action(
             icon_path,
-            text=self.tr(u'SDSS Template'),
+            text=self.tr('advISOr'),
             callback=self.run,
             parent=self.iface.mainWindow())
 
@@ -217,7 +217,7 @@ class SpatialDecision:
 
         for action in self.actions:
             self.iface.removePluginMenu(
-                self.tr(u'&SDSS Template'),
+                self.tr('advISOr'),
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
@@ -248,3 +248,4 @@ class SpatialDecision:
             self.dockwidget.show()
 
             #run simple tests here
+

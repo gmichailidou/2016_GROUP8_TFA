@@ -87,15 +87,12 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         # data
         self.loadRotterdamdataButton.clicked.connect(self.warningLoadData)
         self.createScenarioButton.clicked.connect(self.createScenario)
-        #self.scenarioCombo.currentIndexChanged.connect(self.scenarioChanged)
         self.scenarioPath = QgsProject.instance().homePath()
-        self.scenarioCombo.clear()
-        self.scenarioCombo.addItem('base')
         self.scenarioAttributes = {}
         self.subScenario = {}
 
         # add button icons
-        self.bigiconButton.setIcon(QtGui.QIcon(':icons/advisor1.png'))
+        self.bigiconButton.setIcon(QtGui.QIcon(':icons/advisor.png'))
         self.bigiconButton.clicked.connect(self.openinBrowser)
 
         # indicators
@@ -117,17 +114,14 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.distanceVisiblecheckBox.stateChanged.connect(self.distanceVisible)
         self.initialareas.clicked.connect(self.layer_initial)
         self.criticalarea.clicked.connect(self.layerpopulation)
-        #self.initialareasVisiblecheckBox.connect()
-        #self.criticalVisiblecheckBox.connect()
+        self.initialareasVisiblecheckBox.stateChanged.connect(self.initialVisible)
         self.screenshotButton.clicked.connect(self.savemap)
-        self.savesenariobuttom.clicked.connect(self.cliplayer)
+        self.initialareas.clicked.connect(self.MaxThresholdCritical)
 
         # report
         self.getinfo.clicked.connect(self.getsummary)
-        #self.displayStyleButton.clicked.connect(self.plotChart)
-        self.updateAttribute.connect(self.extractAttributeSummary('bu_naam', 'iso_area'))
-
-
+        self.saveStatisticsButton.clicked.connect(self.saveTable)
+        self.statistics.clicked.connect(self.extractAttributeSummary)
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
@@ -137,10 +131,6 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
     def openinBrowser(self):
         webbrowser.open('https://github.com/gmichailidou/2016_GROUP8_advISOr/wiki', new=2)
-
-    def getScenarios(self):
-        scenarios = [self.scenarioCombo.itemText(i) for i in range(self.scenarioCombo.count())]
-        return scenarios
 
     def createScenario(self):
         # select the node layer
@@ -156,26 +146,8 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             # save the scenario path
             self.scenarioPath = real_path
             current_scenario = path.split("/")[-1]
-            # add scenario to current scenario combo and select it
-            self.scenarioCombo.addItem(current_scenario)
-            index = self.scenarioCombo.count() - 1
-            self.scenarioCombo.setCurrentIndex(index)
-            filename = current_scenario + '_nodes'
-            pathStyle = "%s/Styles/" % QgsProject.instance().homePath()
-            # save the layer as shapefile
+
             vlayer = uf.copyLayerToShapeFile(vl, path, filename)
-            # add scenario to the project
-            QgsMapLayerRegistry.instance().addMapLayer(vlayer, False)
-
-            root = QgsProject.instance().layerTreeRoot()
-            scenario_group = root.insertGroup(0, current_scenario)
-            scenario_group.insertLayer(0, vlayer)
-            root.findLayer(vlayer.id()).setExpanded(False)
-
-            layer = uf.getLegendLayerByName(self.iface, filename)
-            layer.loadNamedStyle("{}styleNodes.qml".format(pathStyle))
-            layer.triggerRepaint()
-            self.iface.legendInterface().refreshLayerSymbology(layer)
 
 
     def updateNodeCensusScenario(self):
@@ -199,25 +171,6 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
                 index = self.selectCensusCombo.findText(census_text)
                 self.selectCensusCombo.setCurrentIndex(index);
 
-        # remove scenario if deleted
-        scenarios = self.getScenarios()
-        current_scenario = self.scenarioCombo.currentText()
-        self.scenarioCombo.clear()
-        index = 0
-        for scenario in scenarios:
-            root = QgsProject.instance().layerTreeRoot()
-            scenario_group = root.findGroup(scenario)
-            if scenario_group or scenario == 'base':
-                self.scenarioCombo.addItem(scenario)
-                if scenario == current_scenario:
-                    self.scenarioCombo.setCurrentIndex(index)
-                index = index + 1
-            else:
-                self.scenarioAttributes.pop(scenario, None)
-                # send this to the table
-                #self.clearTable()
-                #self.updateTable1()
-                #self.updateTable2()
 
     def warningLoadData(self):
         msgBox = QtGui.QMessageBox()
@@ -231,23 +184,9 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def loadRotterdamButton(self):
         data_path = os.path.join(os.path.dirname(__file__), 'sample_data', 'Final_Rotterdam_data.qgs')
         self.iface.addProject(data_path)
-        #self.baseAttributes()
 
         #initialize
         self.sliderInit()
-
-    def baseAttributes(self):
-        # get summary of the attribute
-        layer = uf.getLegendLayerByName(self.iface, "Population")
-        summary = []
-        # only use the first attribute in the list
-        for feature in layer.getFeatures():
-            summary.append(feature)  # , feature.attribute(attribute)))
-        self.scenarioAttributes["base"] = summary
-        # send this to the table
-        #self.clearTable()
-        #self.updateTable1()
-        #self.updateTable2()
 
     def getNodesLayer(self):
         layer_name = self.selectNodesCombo.currentText()
@@ -257,15 +196,6 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def getBaseNodeLayer(self):
         layer_name = self.selectNodeCombo.currentText()
         layer = uf.getLegendLayerByName(self.iface, layer_name)
-        return layer
-
-    def getCurrentNodeLayer(self):
-        layer_name = self.scenarioCombo.currentText() + '_nodes'
-        layer = uf.getLegendLayerByName(self.iface, layer_name)
-
-        if layer == None:
-            layer_name = 'Nodes'
-            layer = uf.getLegendLayerByName(self.iface, layer_name)
         return layer
 
         #
@@ -332,8 +262,8 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
     def warningFrequencyNodes(self):
             # check if layer already exists
-        current_scenario = self.scenarioCombo.currentText()
-        layer = uf.getLegendLayerByName(self.iface, current_scenario + '_nodes_filtered')
+        #current_scenario = self.scenarioCombo.currentText()
+        layer = uf.getLegendLayerByName(self.iface,'_nodes_filtered')
         if layer:
             msgBox = QtGui.QMessageBox()
             msgBox.setText(
@@ -371,21 +301,19 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
     def layerFreqNodes(self):
             # delete old layer if present
-        current_scenario = self.scenarioCombo.currentText()
-        old_layer = uf.getLegendLayerByName(self.iface, current_scenario + '_nodes_filtered')
+        old_layer = uf.getLegendLayerByName(self.iface,'_nodes_filtered')
         if old_layer:
             QgsMapLayerRegistry.instance().removeMapLayer(old_layer.id())
 
             # create one if it doesn't exist and add suffix for the scenario
         nodeLayer = uf.getLegendLayerByName(self.iface, "PT Network Nodes")
-        current_scenario = self.scenarioCombo.currentText()
-        freq_layer = uf.getLegendLayerByName(self.iface, current_scenario + '_nodes_filtered')
+        freq_layer = uf.getLegendLayerByName(self.iface,'_nodes_filtered')
         if not freq_layer:
             timeslot_field = self.setTimeSlot()
             attribs = ['id', 'name', 'ModeType', timeslot_field]
             types = [QtCore.QVariant.Int, QtCore.QVariant.String, QtCore.QVariant.String, QtCore.QVariant.Int]
-            freq_layer = uf.createTempLayer(current_scenario + '_nodes_filtered','POINT',nodeLayer.crs().postgisSrid(), attribs, types)
-            freq_layer.setLayerName(current_scenario + '_nodes_filtered')
+            freq_layer = uf.createTempLayer('_nodes_filtered','POINT',nodeLayer.crs().postgisSrid(), attribs, types)
+            freq_layer.setLayerName('_nodes_filtered')
             uf.loadTempLayer(freq_layer)
 
             # insert pointsgeom & values
@@ -396,17 +324,17 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def MaxThresholdText(self):
         timeslot_field = self.setTimeSlot()
         if timeslot_field == 'Rh1_Wd/h':
-            self.label_10.setText('96 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
+            self.label_10.setText('35 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
         elif timeslot_field == 'Rh2_Wd/h':
-            self.label_10.setText('76 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
+            self.label_10.setText('30 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
         elif timeslot_field == 'NRh_Wd/h':
-            self.label_10.setText('58 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
+            self.label_10.setText('25 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
         elif timeslot_field == 'Rh1_We/h':
-            self.label_10.setText('72 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
+            self.label_10.setText('30 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
         elif timeslot_field == 'Rh2_We/h':
-            self.label_10.setText('58 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
+            self.label_10.setText('26 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
         elif timeslot_field == 'NRh_We/h':
-            self.label_10.setText('34 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
+            self.label_10.setText('20 is the maximum frequency per hour value that a mode(s) pass\n from a node for the selected timeslot')
 
 
         # analysis functions
@@ -446,19 +374,22 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def sliderMoved(self, value):
         self.sliderValue.setText(str(value))
 
-    def sliderValueChanged(self):
-        current_scenario = self.scenarioCombo.currentText()
-        filename = current_scenario + '_dist2station'
-        raster_layer = uf.getLegendLayerByName(self.iface, filename)
-        if raster_layer:
-            self.styleStationDistance(raster_layer)
 
             # buffer functions
 
     def distanceVisible(self):
-        #current_scenario = self.scenarioCombo.currentText()
         layer_name ="Buffers"
         checked = self.distanceVisiblecheckBox.isChecked()
+        if checked is True:
+            self.setLayerVisibility(layer_name, True)
+        elif checked is False:
+            self.setLayerVisibility(layer_name, False)
+
+
+    def initialVisible(self):
+
+        layer_name = "initial_areas"
+        checked = self.initialareasVisiblecheckBox.isChecked()
         if checked is True:
             self.setLayerVisibility(layer_name, True)
         elif checked is False:
@@ -487,7 +418,6 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         # store the buffer results in temporary layer called "Buffers"
         old_layer = uf.getLegendLayerByName(self.iface, "Buffers")
         if old_layer:
-            #ids = uf.getAllFeatureIds(old_layer)
             QgsMapLayerRegistry.instance().removeMapLayer(old_layer.id())
         buffer_layer = uf.getLegendLayerByName(self.iface, "Buffers")
         layer = self.getSelectedLayer()
@@ -500,14 +430,16 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
                 values = []
                 values.append(point.attribute('sid'))
                 values.append(point.attribute('inw2014'))
+                values.append(point.attribute('group_pop'))
                 values.append(point.attribute('popden10m2'))
+
                 attributes.append(values)
                 geom = point.geometry()
                 buffers.append(geom.buffer(cutoff_distance,12).asPolygon())
             # create one if it doesn't exist
             if not buffer_layer:
-                attribs = ['sid','inw2014','popden10m2']
-                types = [QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double]
+                attribs = ['sid','inw2014','group_pop','popden10m2']
+                types = [QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double]
                 buffer_layer = uf.createTempLayer('Buffers','POLYGON',layer.crs().postgisSrid(), attribs, types)
                 buffer_layer.setLayerName('Buffers')
                 uf.loadTempLayer(buffer_layer)
@@ -524,21 +456,16 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
     # show buffers with nodes inside in order to delete them
     def getfeaturesforinitialareas(self):
-        NetworkNodes_layer = uf.getLegendLayerByName(self.iface, "base_nodes_filtered")
+        NetworkNodes_layer = uf.getLegendLayerByName(self.iface, "_nodes_filtered")
         buffer = uf.getLegendLayerByName(self.iface, 'Buffers')
         bufferfeatures=buffer.getFeatures()
 
         features = uf.getFeaturesByIntersection(buffer, NetworkNodes_layer, True)
-        #print len(features)
 
         values = []
 
         for i in features:
-            # buffer.deleteFeature(i.sid())
-            # column = i.attribute("sid")
             values.append(i.attribute('sid'))
-        #print values
-
 
         geometrybuffer=[]
         attributes=[]
@@ -550,7 +477,9 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
                 val = []
                 val.append(i.attribute('sid'))
                 val.append(i.attribute('inw2014'))
+                val.append(i.attribute('group_pop'))
                 val.append(i.attribute('popden10m2'))
+
                 attributes.append(val)
                 geometrybuffer.append(i.geometry().asPolygon())
 
@@ -566,13 +495,13 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             # create one if it doesn't exist and add suffix for the scenario
         initial_areas = uf.getLegendLayerByName(self.iface, 'initial_areas')
         if not initial_areas:
-            attribs = ['sid', 'inw2014', 'popden10m2']
-            types = [QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double]
+            attribs = ['sid', 'inw2014', 'group_pop', 'popden10m2']
+            types = [QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double]
             initial_areas = uf.createTempLayer('initial_areas', 'POLYGON', layer.crs().postgisSrid(), attribs, types)
             initial_areas.setLayerName('initial_areas')
             uf.loadTempLayer(initial_areas)
             legend = self.iface.legendInterface()
-            legend.setLayerVisible(initial_areas, True)
+            legend.setLayerVisible(initial_areas, False)
 
             # insert pointsgeom & values
         tuple = self.getfeaturesforinitialareas()
@@ -587,13 +516,12 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         filtered_areas = []
         attributes = []
         for feature in areas:
-            # print feature
-            column = feature.attribute('inw2014')
-            # print column
-            if column > threshold:
+            column = feature.attribute('group_pop')
+            if column >= threshold:
                 values = []
                 values.append(feature.attribute('sid'))
                 values.append(feature.attribute('inw2014'))
+                values.append(feature.attribute('group_pop'))
                 values.append(feature.attribute('popden10m2'))
 
                 attributes.append(values)
@@ -603,21 +531,19 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
     def layerpopulation(self):
         # delete old layer if present
-        current_scenario = self.scenarioCombo.currentText()
-        old_layer = uf.getLegendLayerByName(self.iface, current_scenario + '_critical_areas')
+        old_layer = uf.getLegendLayerByName(self.iface, '_critical_areas')
         if old_layer:
             QgsMapLayerRegistry.instance().removeMapLayer(old_layer.id())
 
             # create one if it doesn't exist and add suffix for the scenario
         Layer = uf.getLegendLayerByName(self.iface, 'initial_areas')
-        current_scenario = self.scenarioCombo.currentText()
-        critical_layer = uf.getLegendLayerByName(self.iface, current_scenario + '_critical_areas')
+        critical_layer = uf.getLegendLayerByName(self.iface, '_critical_areas')
         if not critical_layer:
             timeslot_field = self.setTimeSlot()
-            attribs = ['sid', 'inw2014', 'popden10m2']
-            types = [QtCore.QVariant.Int, QtCore.QVariant.Double, QtCore.QVariant.Double]
-            critical_layer = uf.createTempLayer(current_scenario + '_critical_areas', 'POLYGON',Layer.crs().postgisSrid(), attribs, types)
-            critical_layer.setLayerName(current_scenario + '_critical_areas')
+            attribs = ['sid', 'inw2014', 'group_pop', 'popden10m2']
+            types = [QtCore.QVariant.Int, QtCore.QVariant.Double, QtCore.QVariant.Double, QtCore.QVariant.Double]
+            critical_layer = uf.createTempLayer( '_critical_areas', 'POLYGON',Layer.crs().postgisSrid(), attribs, types)
+            critical_layer.setLayerName( '_critical_areas')
             uf.loadTempLayer(critical_layer)
 
             # insert pointsgeom & values
@@ -627,12 +553,11 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
         self.cliplayer()
 
-
+        # create clip layer
     def cliplayer(self):
-        current_scenario = self.scenarioCombo.currentText()
         overlay_layer = uf.getLegendLayerByName(self.iface,'Neighbourhoods population')
-        to_clip= uf.getLegendLayerByName(self.iface, current_scenario + '_critical_areas')
-
+        to_clip= uf.getLegendLayerByName(self.iface, '_critical_areas')
+        #calling clip function import processing need
         result = processing.runandload("qgis:clip", overlay_layer , to_clip ,None)
 
         clip_layer = uf.getLegendLayerByName(self.iface, "Clipped")
@@ -649,8 +574,27 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
             new_values = {idx: float(round(area,4))}
             prov.changeAttributeValues({areas.index(area): new_values})
 
+    def max_popagegroup_initialcritical(self):
+        max_pop_layer = uf.getLegendLayerByName(self.iface, "initial_areas")
+        pop_list = []
+        attrs = max_pop_layer.getFeatures()
+        if max_pop_layer:
+            for feature in attrs:
+                pop_list.append(feature.attribute('group_pop'))
+            pop_list.sort(reverse=True)
+            result = []
+            for i in pop_list:
+                result.append(i)
+            return result[0]
 
-        #report functions
+    def MaxThresholdCritical(self):
+        pop_threshold = self.max_popagegroup_initialcritical()
+        to_print = 'max(%s)' % (pop_threshold)
+        self.label_22.setText(to_print)
+
+
+
+        #report functions#
     def getsummary(self):
         self.textagegroup.clear()
         x=self.selectCensusCombo.currentText()
@@ -672,46 +616,16 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         d=self.populationthreshold.text()
         self.popthreshold.insertItem(0, d)
 
-    def plotChart(self):
-        iso_layer = uf.getLegendLayerByName(self.iface, "Clipped")
-        area_list = []
-        names_list = []
-        if iso_layer:
-            D = {}
-            iso_attrs = iso_layer.getFeatures()
-            for feature in iso_attrs:
-                # retrieve every feature with its geometry and attributes
-                # fetch geometry
-                area = feature.iso_area()
-                area_list.append(area)
-                name = feature.bu_naam()
-                names_list.append(name)
 
-                D[name] = area
-                mpl_fig = plt.figure()
-                ax = mpl_fig.add_subplot(111)
-                ax.set_ylabel('Isolated area - neighbourhoud name')
-                ax.set_xlabel('Area m2')
-                ax.set_title('Non covered from the Network areas')
-
-                plt.bar(range(len(D)), D.values(), align='center')
-                plt.xticks(range(len(D)), D.keys())
-
-                plot_url = py.plot_mpl(mpl_fig, filename='mpl-dictionary')
-
-                # draw all the plots
-                self.chart_canvas.draw()
-            else:
-                self.clearChart()
-
-
-    def extractAttributeSummary(self, attribute1, attribute2):
+    def extractAttributeSummary(self, attribute):
         # get summary of the attribute
+        attribute='bu_naam'
+        attribute2='iso_area'
         layer = uf.getLegendLayerByName(self.iface, "Clipped")
         summary = []
         # only use the first attribute in the list
         for feature in layer.getFeatures():
-            summary.append(( feature.attribute(attribute1), feature.attribute(attribute2)))
+            summary.append(( feature.attribute(attribute), feature.attribute(attribute2)))
         # send this to the table
         self.clearTable()
         self.updateTable(summary)
@@ -722,8 +636,8 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
     def updateTable(self, values):
         # takes a list of label / value pairs, can be tuples or lists. not dictionaries to control order
-        self.statisticsTable.setColumnCount(3)
-        self.statisticsTable.setHorizontalHeaderLabels(['bu_naam', 'iso_area'])
+        self.statisticsTable.setColumnCount(2)
+        self.statisticsTable.setHorizontalHeaderLabels(['Isolated Neighbourhood', 'Area m2'])
         self.statisticsTable.setRowCount(len(values))
         for i, item in enumerate(values):
             # i is the table row, items mus tbe added as QTableWidgetItems
@@ -733,6 +647,29 @@ class SpatialDecisionDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.statisticsTable.horizontalHeader().setResizeMode(1, QtGui.QHeaderView.Stretch)
         self.statisticsTable.resizeRowsToContents()
 
+    def saveTable(self):
+        path = QtGui.QFileDialog.getSaveFileName(self, 'Save File', '', 'CSV(*.csv)')
+        if path:
+            with open(unicode(path), 'wb') as stream:
+                # open csv file for writing
+                writer = csv.writer(stream)
+                # write header
+                header = []
+                for column in range(self.statisticsTable.columnCount()):
+                    item = self.statisticsTable.horizontalHeaderItem(column)
+                    header.append(unicode(item.text()).encode('utf8'))
+                writer.writerow(header)
+                # write data
+                for row in range(self.statisticsTable.rowCount()):
+                    rowdata = []
+                    for column in range(self.statisticsTable.columnCount()):
+                        item = self.statisticsTable.item(row, column)
+                        if item is not None:
+                            rowdata.append(
+                                unicode(item.text()).encode('utf8'))
+                        else:
+                            rowdata.append('')
+                    writer.writerow(rowdata)
 
 
 

@@ -7,7 +7,7 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=SDSS Template
+name=advISOr
 qgisMinimumVersion=2.0
 description=This is a SDSS template for the GEO1005 course
 version=0.1
